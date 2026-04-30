@@ -19,7 +19,7 @@ import { PrintButton } from "@/components/pop/print-button"
 const modules: Array<{
   number: string
   title: string
-  icon: typeof HardHat
+  icon: React.ReactNode
   duration?: string
   team?: string
   tools?: string[]
@@ -29,7 +29,7 @@ const modules: Array<{
   {
     number: "1",
     title: "Instalação de Câmeras",
-    icon: Camera,
+    icon: <Camera className="h-4 w-4" aria-hidden="true" />,
     team: "Técnico de Instalação",
     steps: [
       {
@@ -42,7 +42,7 @@ const modules: Array<{
   {
     number: "2",
     title: "Demarcação",
-    icon: Ruler,
+    icon: <Ruler className="h-4 w-4" aria-hidden="true" />,
     duration: "5 h gabaritagem + 2 h arranques",
     team: "Técnico de Instalação + 2 Assistentes de Instalação",
     tools: ["Martelete", "Linha de marcação", "Giz / tinta"],
@@ -68,7 +68,7 @@ const modules: Array<{
   {
     number: "3",
     title: "Impermeabilização",
-    icon: Droplets,
+    icon: <Droplets className="h-4 w-4" aria-hidden="true" />,
     duration: "≈ 1 hora",
     team: "Assistentes de Instalação",
     tools: ["Smart Resina", "Cimento Elástico"],
@@ -89,7 +89,7 @@ const modules: Array<{
   {
     number: "4",
     title: "Esquadros",
-    icon: Square,
+    icon: <Square className="h-4 w-4" aria-hidden="true" />,
     duration: "≈ 2 h prumagem + 10 min linhas-guia",
     team: "Assistentes de Instalação",
     tools: ["Parafusadeira", "Arame", "Metalon"],
@@ -124,7 +124,7 @@ const modules: Array<{
   {
     number: "5",
     title: "Montagem dos Painéis",
-    icon: LayoutGrid,
+    icon: <LayoutGrid className="h-4 w-4" aria-hidden="true" />,
     team: "Assistentes de Instalação",
     tools: ["Torquês", "Arame"],
     steps: [
@@ -170,7 +170,7 @@ const modules: Array<{
   {
     number: "6",
     title: "Instalações Elétrica e Hidráulica",
-    icon: Zap,
+    icon: <Zap className="h-4 w-4" aria-hidden="true" />,
     duration: "≈ 4 h marcação + 2 dias execução",
     team: "Equipe de elétrica e hidráulica",
     tools: ["Tinta spray", "Soprador térmico"],
@@ -201,7 +201,7 @@ const modules: Array<{
   {
     number: "7",
     title: "Reboco Estrutural",
-    icon: PaintRoller,
+    icon: <PaintRoller className="h-4 w-4" aria-hidden="true" />,
     duration: "50–60 min entre camadas · 48 h cura",
     team: "Assistentes de Instalação",
     tools: ["Projetora", "Régua de alumínio", "Mestras / taliscas"],
@@ -238,7 +238,7 @@ const modules: Array<{
   {
     number: "8",
     title: "Laje Convencional",
-    icon: Layers,
+    icon: <Layers className="h-4 w-4" aria-hidden="true" />,
     team: "Equipe completa",
     steps: [
       {
@@ -297,7 +297,7 @@ const modules: Array<{
   {
     number: "9",
     title: "Limpeza e Entrega",
-    icon: Sparkles,
+    icon: <Sparkles className="h-4 w-4" aria-hidden="true" />,
     team: "Equipe completa",
     steps: [
       {

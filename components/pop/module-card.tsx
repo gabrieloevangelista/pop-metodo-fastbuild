@@ -1,6 +1,6 @@
 "use client"
 
-import type { LucideIcon } from "lucide-react"
+import type * as React from "react"
 import { Clock, Users, Wrench } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
@@ -22,7 +22,8 @@ export type StepItem = {
 export type ModuleCardProps = {
   number: string
   title: string
-  icon: LucideIcon
+  /** Ícone já renderizado (ex.: <Camera className="h-4 w-4" />) */
+  icon: React.ReactNode
   duration?: string
   team?: string
   tools?: string[]
@@ -35,7 +36,7 @@ export type ModuleCardProps = {
 export function ModuleCard({
   number,
   title,
-  icon: Icon,
+  icon,
   duration,
   team,
   tools,
@@ -62,7 +63,9 @@ export function ModuleCard({
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
-            <Icon className="h-4 w-4" aria-hidden="true" />
+            <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
+              {icon}
+            </span>
             <span>Módulo {number}</span>
           </div>
           <h3 className="font-display text-xl md:text-2xl font-bold text-foreground text-balance leading-tight">

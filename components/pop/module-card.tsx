@@ -1,9 +1,21 @@
+"use client"
+
 import type { LucideIcon } from "lucide-react"
 import { Clock, Users, Wrench } from "lucide-react"
 import { cn } from "@/lib/utils"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export type StepItem = {
-  text: string
+  /** Texto curto e imperativo do passo (ex.: "Demarcar paredes") */
+  title: string
+  /** Explicação detalhada exibida ao expandir o accordion */
+  details: React.ReactNode
+  /** Destaca o passo como crítico/importante */
   highlight?: boolean
 }
 
@@ -37,7 +49,7 @@ export function ModuleCard({
       id={`modulo-${number}`}
       className="scroll-mt-24 rounded-2xl border border-border bg-card shadow-sm overflow-hidden"
     >
-      {/* Header */}
+      {/* Cabeçalho */}
       <header className="flex items-start gap-4 p-5 md:p-6 border-b border-border bg-secondary/40">
         <div
           className={cn(
@@ -104,33 +116,52 @@ export function ModuleCard({
         </div>
       )}
 
-      {/* Steps */}
-      <ol className="divide-y divide-border">
-        {steps.map((step, idx) => (
-          <li
-            key={idx}
-            className={cn(
-              "flex gap-4 p-5 md:px-6 md:py-5",
-              step.highlight && "bg-accent/10",
-            )}
-          >
-            <div
+      {/* Passos em accordion */}
+      <Accordion type="multiple" className="divide-y divide-border">
+        {steps.map((step, idx) => {
+          const itemValue = `modulo-${number}-passo-${idx}`
+          return (
+            <AccordionItem
+              key={itemValue}
+              value={itemValue}
               className={cn(
-                "flex shrink-0 items-center justify-center h-8 w-8 rounded-full font-display font-bold text-sm",
-                step.highlight
-                  ? "bg-accent text-accent-foreground"
-                  : "bg-primary text-primary-foreground",
+                "border-0",
+                step.highlight && "bg-accent/10",
               )}
-              aria-hidden="true"
             >
-              {idx + 1}
-            </div>
-            <p className="text-base md:text-[17px] leading-relaxed text-foreground pt-1">
-              {step.text}
-            </p>
-          </li>
-        ))}
-      </ol>
+              <AccordionTrigger
+                className={cn(
+                  "px-5 md:px-6 py-4 md:py-5 hover:no-underline gap-4 items-start text-left",
+                  "[&[data-state=open]>div>div:first-child]:bg-primary",
+                  "[&[data-state=open]>div>div:first-child]:text-primary-foreground",
+                )}
+              >
+                <div className="flex items-start gap-4 flex-1 min-w-0">
+                  <div
+                    className={cn(
+                      "flex shrink-0 items-center justify-center h-8 w-8 rounded-full font-display font-bold text-sm transition-colors",
+                      step.highlight
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-secondary text-foreground border border-border",
+                    )}
+                    aria-hidden="true"
+                  >
+                    {idx + 1}
+                  </div>
+                  <span className="text-base md:text-[17px] leading-snug text-foreground font-semibold pt-1 text-pretty">
+                    {step.title}
+                  </span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-5 md:px-6 pb-5 md:pb-6">
+                <div className="ml-12 rounded-xl border border-border bg-background/60 p-4 md:p-5 text-[15px] md:text-base leading-relaxed text-foreground/90">
+                  {step.details}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          )
+        })}
+      </Accordion>
 
       {warning && (
         <div className="m-5 md:m-6 rounded-xl border-l-4 border-destructive bg-destructive/10 p-4">

@@ -25,15 +25,18 @@ const modules: Array<{
   tools?: string[]
   steps: StepItem[]
   warning?: string
-  extra?: React.ReactNode
 }> = [
   {
     number: "1",
     title: "Instalação de Câmeras",
     icon: Camera,
-    team: "Mestre de Obras",
+    team: "Técnico de Instalação",
     steps: [
-      { text: "Posicionar e instalar câmeras de monitoramento da obra antes do início dos trabalhos." },
+      {
+        title: "Posicionar e instalar as câmeras de monitoramento",
+        details:
+          "Antes de iniciar qualquer trabalho na obra, o Técnico de Instalação deve posicionar e fixar as câmeras de monitoramento em pontos estratégicos do canteiro. Essas câmeras servem para registrar a execução de cada etapa e garantir o acompanhamento remoto da obra.",
+      },
     ],
   },
   {
@@ -41,16 +44,24 @@ const modules: Array<{
     title: "Demarcação",
     icon: Ruler,
     duration: "5 h gabaritagem + 2 h arranques",
-    team: "Mestre de Obras + 2 auxiliares",
-    tools: ["Martelete", "Linha de marcação"],
+    team: "Técnico de Instalação + 2 Assistentes de Instalação",
+    tools: ["Martelete", "Linha de marcação", "Giz / tinta"],
     steps: [
-      { text: "Conferir se a fundação e o radier estão prontos antes de iniciar." },
       {
-        text: "Demarcar as paredes com linhas e desenhos: o mestre de obras faz a gabaritagem; os auxiliares desenham e demarcam.",
+        title: "Conferir fundação e radier",
+        details:
+          "Verifique se a fundação e o radier estão totalmente prontos, nivelados e curados antes de iniciar a demarcação. Não comece nenhuma marcação sobre superfície ainda úmida ou irregular.",
       },
       {
-        text: "Fazer os furos de arranques e encaixá-los a cada 30 cm, usando o martelete sob supervisão do mestre de obras.",
+        title: "Demarcar as paredes com linhas e desenhos",
+        details:
+          "O Técnico de Instalação faz a gabaritagem (referência mestre) e os Assistentes de Instalação desenham e demarcam o caminho das paredes sobre o radier seguindo o projeto. Tempo médio dessa etapa: aproximadamente 5 horas.",
+      },
+      {
+        title: "Furar e encaixar os arranques a cada 30 cm",
         highlight: true,
+        details:
+          "Os Assistentes de Instalação, sob supervisão do Técnico de Instalação, executam os furos e encaixam os arranques a cada 30 cm com o uso do martelete. Tempo médio: 2 horas. Mantenha o espaçamento padrão para garantir o travamento correto dos painéis.",
       },
     ],
   },
@@ -59,14 +70,20 @@ const modules: Array<{
     title: "Impermeabilização",
     icon: Droplets,
     duration: "≈ 1 hora",
-    team: "Auxiliares técnicos",
+    team: "Assistentes de Instalação",
     tools: ["Smart Resina", "Cimento Elástico"],
     steps: [
       {
-        text: "Aplicar a impermeabilização no caminho das paredes: 2 mãos de Smart Resina + 1 mão de Cimento Elástico.",
+        title: "Aplicar a impermeabilização no caminho das paredes",
         highlight: true,
+        details:
+          "Misturar e aplicar 2 mãos de Smart Resina + 1 mão de Cimento Elástico em todo o caminho das paredes demarcadas. Aguarde o tempo de secagem entre as mãos conforme a indicação do fabricante.",
       },
-      { text: "Encaixar os arranques nos furos somente após aplicar a camada de produtos." },
+      {
+        title: "Encaixar os arranques nos furos",
+        details:
+          "Somente após a aplicação completa da camada de impermeabilizante, os Assistentes de Instalação devem encaixar os arranques nos furos previamente abertos no módulo de demarcação.",
+      },
     ],
   },
   {
@@ -74,21 +91,33 @@ const modules: Array<{
     title: "Esquadros",
     icon: Square,
     duration: "≈ 2 h prumagem + 10 min linhas-guia",
-    team: "Auxiliares técnicos",
+    team: "Assistentes de Instalação",
     tools: ["Parafusadeira", "Arame", "Metalon"],
     steps: [
       {
-        text: "Prumagem: posicionar as chapas de metal das escoras no prumo (alinham as paredes). Colocar uma escora em cada extremidade do radier.",
-      },
-      { text: "Posicionar os esquadros no prumo e fixá-los no chão com a parafusadeira." },
-      {
-        text: "Passar duas linhas-guia entre as escoras das extremidades: uma na parte de cima (altura da laje) e outra na parte de baixo (rodapé).",
+        title: "Prumagem das chapas de metal das escoras",
+        details:
+          "Coloque as chapas de metal das escoras no prumo. Essas escoras alinham as paredes. Posicione uma escora em cada extremidade do radier. Tempo médio: 2 horas.",
       },
       {
-        text: "Colocar os demais esquadros no centro (um a cada distância padrão) e fixá-los no chão com parafusadeira.",
+        title: "Posicionar e fixar os esquadros no chão",
+        details:
+          "Posicione cada esquadro no prumo e fixe-o no chão usando a parafusadeira, garantindo firmeza para suportar os painéis na sequência.",
       },
       {
-        text: "Instalar 2 metalons na horizontal entre as escoras, amarrados com arame, mantendo distância equivalente do chão.",
+        title: "Passar duas linhas-guia entre as escoras",
+        details:
+          "Passe duas linhas-guia entre as escoras das extremidades: uma na parte de cima (altura da laje) e outra na parte de baixo (rodapé). Essas linhas servem como referência de alinhamento durante todo o trabalho. Tempo médio: 10 minutos.",
+      },
+      {
+        title: "Instalar os esquadros do centro",
+        details:
+          "Coloque os demais esquadros entre as extremidades, distribuindo um esquadro a cada distância padrão de projeto, e fixe-os no chão com a parafusadeira.",
+      },
+      {
+        title: "Instalar os metalons na horizontal",
+        details:
+          "Instale 2 metalons na horizontal entre uma escora e outra, mantendo distância equivalente entre eles e o chão. Os metalons são amarrados com arame.",
       },
     ],
   },
@@ -96,31 +125,45 @@ const modules: Array<{
     number: "5",
     title: "Montagem dos Painéis",
     icon: LayoutGrid,
-    team: "Auxiliares técnicos",
+    team: "Assistentes de Instalação",
     tools: ["Torquês", "Arame"],
     steps: [
       {
-        text: "Levantar o painel e apoiá-lo nos esquadros e arranques, seguindo a numeração do projeto do fornecedor.",
+        title: "Levantar e posicionar os painéis",
+        details:
+          "Levante o painel e apoie-o nos esquadros e arranques, seguindo a numeração do projeto fornecida pelo fabricante. Cada painel tem uma posição específica — não troque a ordem.",
       },
       {
-        text: "Amarrar os painéis com arame usando a torquês: a cada 2 quadradinhos da malha, uma amarração.",
+        title: "Amarrar os painéis com arame e torquês",
         highlight: true,
+        details:
+          "Amarre os painéis com arame utilizando a torquês. Regra: a cada 2 quadradinhos da malha, faça uma amarração. Isso garante que o painel fique firme e bem travado.",
       },
       {
-        text: "Painéis acima e abaixo da janela vão na posição HORIZONTAL (paredes ficam na vertical).",
+        title: "Painéis acima e abaixo da janela: posição HORIZONTAL",
         highlight: true,
+        details:
+          "Atenção à orientação: as paredes ficam na vertical, mas os painéis que formam a parte de cima e de baixo da janela são colocados na posição HORIZONTAL. Conferir o projeto antes de fixar.",
       },
       {
-        text: "Vergas e contra-vergas (malha U) nas janelas: 4 unidades por janela, presas com arame e torquês.",
+        title: "Vergas e contra-vergas (malha U) nas janelas",
+        details:
+          "Coloque vergas e contra-vergas com malha U nas 4 extremidades de cada janela — total de 4 unidades por janela. Prenda com arame usando a torquês.",
       },
       {
-        text: "Vergas (malha U) nas portas: 1 unidade por porta, na parte de cima, presa com arame e torquês.",
+        title: "Vergas (malha U) nas portas",
+        details:
+          "Coloque verga em malha U na parte de cima de cada porta — 1 unidade por porta. Prenda com arame e torquês.",
       },
       {
-        text: "Malha “band-ai” a 45° em todas as quinas das janelas (dentro e fora): 8 unidades por janela.",
+        title: "Malha “band-ai” a 45° nas quinas das janelas",
+        details:
+          "Aplique a malha “band-ai” a 45° em relação à quina, em todas as quinas das janelas, dentro e fora — 8 unidades por janela. Prenda com arame e torquês.",
       },
       {
-        text: "Malha “band-ai” a 45° em todas as quinas das portas (dentro e fora): 4 unidades por porta.",
+        title: "Malha “band-ai” a 45° nas quinas das portas",
+        details:
+          "Aplique a malha “band-ai” a 45° em todas as quinas das portas, dentro e fora — 4 unidades por porta. Prenda com arame e torquês.",
       },
     ],
   },
@@ -133,12 +176,26 @@ const modules: Array<{
     tools: ["Tinta spray", "Soprador térmico"],
     steps: [
       {
-        text: "Com o projeto em mãos, marcar com TINTA SPRAY (somente spray) os dutos elétricos, hidráulicos e caixinhas de interruptor.",
+        title: "Marcar dutos e caixinhas com tinta spray",
         highlight: true,
+        details:
+          "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidráulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
       },
-      { text: "Auxiliar abre os dutos marcados utilizando o soprador térmico, seguindo o projeto." },
-      { text: "Passagem de conduítes e canos pela equipe de elétrica e hidráulica (≈ 2 dias)." },
-      { text: "Instalar os registros." },
+      {
+        title: "Abrir os dutos com soprador térmico",
+        details:
+          "O Assistente de Instalação utiliza o soprador térmico para abrir, no painel EPS, os dutos previamente marcados, seguindo rigorosamente o projeto.",
+      },
+      {
+        title: "Passagem de conduítes e canos",
+        details:
+          "A equipe de elétrica e hidráulica realiza a passagem de conduítes e canos pelos dutos abertos. Tempo estimado: 2 dias.",
+      },
+      {
+        title: "Instalar os registros",
+        details:
+          "Após a passagem dos canos, instale os registros nos pontos previstos pelo projeto hidráulico.",
+      },
     ],
   },
   {
@@ -146,23 +203,37 @@ const modules: Array<{
     title: "Reboco Estrutural",
     icon: PaintRoller,
     duration: "50–60 min entre camadas · 48 h cura",
-    team: "Auxiliares técnicos",
+    team: "Assistentes de Instalação",
     tools: ["Projetora", "Régua de alumínio", "Mestras / taliscas"],
-    steps: [
-      {
-        text: "Emboço (1ª camada): projetar argamassa para cobrir a malha. Aguardar 50 a 60 min antes da 2ª camada.",
-      },
-      {
-        text: "2ª camada: projetar com o mesmo traço; outro auxiliar nivela com régua de alumínio após 30 min da projeção.",
-      },
-      {
-        text: "Usar mestras de metal ou taliscas para guiar a espessura — recomenda-se 3,5 cm de cada lado.",
-        highlight: true,
-      },
-      { text: "Aguardar 48 horas de cura da projeção antes de seguir." },
-    ],
     warning:
       "EVITE PROJETAR GRANDE QUANTIDADE DE UMA SÓ VEZ — a massa pode “desplacar” da parede.",
+    steps: [
+      {
+        title: "1ª camada — Emboço (cobrir a malha)",
+        details:
+          "Projete a argamassa para cobrir totalmente a malha. Essa primeira camada chama-se emboço. Trabalhe em pequenas áreas por vez para evitar desplacamento. Após projetar, aguarde de 50 a 60 minutos antes de iniciar a 2ª camada.",
+      },
+      {
+        title: "2ª camada — Projeção e nivelamento",
+        details:
+          "Use o mesmo traço de argamassa. Enquanto um Assistente de Instalação projeta a 2ª camada, o segundo segue logo atrás (após 30 minutos da projeção) nivelando com uma régua de alumínio.",
+      },
+      {
+        title: "OBRIGATÓRIO: usar mestras ou taliscas",
+        highlight: true,
+        details:
+          "É obrigatório usar mestras de metal ou taliscas para guiar a espessura do reboco na 2ª camada. Espessura recomendada: 3,5 cm de cada lado da parede.",
+      },
+      {
+        title: "Aguardar 48 h de cura",
+        details:
+          "Aguarde 48 horas de cura completa da projeção antes de seguir para a próxima etapa. Não acelere o processo.",
+      },
+      {
+        title: "Traço da argamassa (proporção 1:3)",
+        details: <MortarRecipe />,
+      },
+    ],
   },
   {
     number: "8",
@@ -170,16 +241,57 @@ const modules: Array<{
     icon: Layers,
     team: "Equipe completa",
     steps: [
-      { text: "Instalação das vigotas nos vãos." },
-      { text: "Colocar as escoras de metal da laje." },
-      { text: "Instalação do EPS e das malhas." },
-      { text: "Amarração de toda a estrutura." },
-      { text: "Instalação das formas de sarrafo nos beirais da laje." },
-      { text: "Concretagem." },
-      { text: "No dia seguinte: cura molhada por 7 dias.", highlight: true },
-      { text: "Instalação da platibanda (com bloco)." },
-      { text: "Montar a casa da caixa d'água." },
-      { text: "Reboco da platibanda e da casa da caixa d'água." },
+      {
+        title: "Instalar as vigotas nos vãos",
+        details:
+          "Posicione as vigotas em todos os vãos da laje seguindo o espaçamento previsto no projeto estrutural.",
+      },
+      {
+        title: "Colocar as escoras de metal da laje",
+        details:
+          "Instale as escoras de metal de apoio da laje, garantindo nivelamento e firmeza para suportar a concretagem.",
+      },
+      {
+        title: "Instalar EPS e malhas",
+        details:
+          "Posicione as placas de EPS entre as vigotas e instale a malha de aço por cima, conforme o projeto.",
+      },
+      {
+        title: "Amarração da estrutura",
+        details:
+          "Amarre toda a estrutura (vigotas, EPS e malhas) com arame, garantindo que nada se mova durante a concretagem.",
+      },
+      {
+        title: "Instalar formas de sarrafo nos beirais",
+        details:
+          "Coloque as formas de sarrafo em todos os beirais da laje para conter o concreto durante a concretagem.",
+      },
+      {
+        title: "Concretagem da laje",
+        details:
+          "Realize a concretagem da laje seguindo o traço definido pelo projeto estrutural. Espalhe e nivele uniformemente.",
+      },
+      {
+        title: "Cura molhada por 7 dias",
+        highlight: true,
+        details:
+          "No dia seguinte à concretagem, inicie a cura molhada e mantenha-a por 7 dias consecutivos. Isso garante a resistência final da laje.",
+      },
+      {
+        title: "Instalar a platibanda (com bloco)",
+        details:
+          "Após a cura inicial, execute a platibanda utilizando blocos, seguindo a altura prevista no projeto.",
+      },
+      {
+        title: "Montar a casa da caixa d’água",
+        details:
+          "Construa a estrutura da casa da caixa d’água sobre a laje, conforme dimensões e localização do projeto.",
+      },
+      {
+        title: "Reboco da platibanda e da casa da caixa d’água",
+        details:
+          "Aplique reboco na platibanda e na casa da caixa d’água, finalizando a estrutura da cobertura.",
+      },
     ],
   },
   {
@@ -188,8 +300,16 @@ const modules: Array<{
     icon: Sparkles,
     team: "Equipe completa",
     steps: [
-      { text: "Limpeza geral da obra e remoção de resíduos." },
-      { text: "Verificação final dos itens do POP e entrega ao cliente." },
+      {
+        title: "Limpeza geral da obra",
+        details:
+          "Realize a limpeza completa do canteiro e o descarte adequado de todos os resíduos gerados durante a execução.",
+      },
+      {
+        title: "Verificação final e entrega ao cliente",
+        details:
+          "Confira todos os itens do POP, faça uma vistoria final junto ao Engenheiro Responsável e realize a entrega oficial da obra ao cliente.",
+      },
     ],
   },
 ]
@@ -203,7 +323,7 @@ const timelineItems = modules.slice(0, 8).map((m) => ({
 export default function Page() {
   return (
     <main className="min-h-svh bg-background">
-      {/* Top header */}
+      {/* Cabeçalho fixo */}
       <header className="border-b border-border bg-card">
         <div className="max-w-5xl mx-auto px-4 md:px-6 py-5 md:py-6">
           <div className="flex items-center justify-between gap-4">
@@ -237,13 +357,13 @@ export default function Page() {
               Montagem de Painéis EPS na Obra
             </h1>
             <p className="text-base md:text-lg text-primary-foreground/80 leading-relaxed text-pretty">
-              Guia visual passo a passo para a equipe de obra. Consulte cada módulo,
-              ferramentas e tempos de execução de forma rápida e clara.
+              Guia visual passo a passo para a equipe de obra. Toque em cada passo
+              para ver a explicação completa.
             </p>
           </div>
         </section>
 
-        {/* Quick info */}
+        {/* Informações rápidas */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="rounded-2xl border border-border bg-card p-5">
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
@@ -266,7 +386,7 @@ export default function Page() {
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-                Mestre de Obras
+                Técnico de Instalação
               </li>
             </ul>
           </div>
@@ -278,11 +398,11 @@ export default function Page() {
             <ul className="space-y-1.5 text-sm md:text-base text-foreground">
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-                1 Técnico de instalação
+                1 Técnico de Instalação
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-                2 Auxiliares técnicos
+                2 Assistentes de Instalação
               </li>
               <li className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
@@ -292,10 +412,10 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Timeline / index */}
+        {/* Índice navegável */}
         <TimelineNav items={timelineItems} />
 
-        {/* Modules */}
+        {/* Módulos */}
         <section className="space-y-6 md:space-y-8">
           {modules.map((m) => (
             <ModuleCard
@@ -308,17 +428,11 @@ export default function Page() {
               tools={m.tools}
               steps={m.steps}
               warning={m.warning}
-            >
-              {m.number === "7" && (
-                <div className="px-5 md:px-6 pb-6">
-                  <MortarRecipe />
-                </div>
-              )}
-            </ModuleCard>
+            />
           ))}
         </section>
 
-        {/* Footer */}
+        {/* Rodapé */}
         <footer className="border-t border-border pt-6 pb-2 text-center">
           <p className="text-xs text-muted-foreground">
             FastBuild · POP 6 — Montagem de Painéis EPS · Documento de consulta interna

@@ -16,27 +16,13 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'POP 6 — Montagem de Painéis EPS | FastBuild',
+  title: 'POP 6 — Montagem de Painel Monolítico | Método FASTBUILD',
   description:
-    'Procedimento Operacional Padrão visual e simplificado para montagem de painéis em EPS na obra.',
-  generator: 'v0.app',
+    'Procedimento Operacional Padrão e manual de canteiro para montagem de painel monolítico pelo Método FASTBUILD.',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+ icon: '/logo-mfb.png',
+ apple: '/logo-mfb.png',
+},
 }
 
 export default function RootLayout({
@@ -46,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${dmSans.variable} ${spaceGrotesk.variable} bg-background`}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

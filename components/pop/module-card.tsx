@@ -1,7 +1,13 @@
 "use client"
 
-import type * as React from "react"
-import { Clock, Users, Wrench } from "lucide-react"
+import * as React from "react"
+import {
+  Clock,
+  Users,
+  Wrench,
+  AlertTriangle,
+  AlertCircle
+} from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
   Accordion,
@@ -11,18 +17,14 @@ import {
 } from "@/components/ui/accordion"
 
 export type StepItem = {
-  /** Texto curto e imperativo do passo (ex.: "Demarcar paredes") */
   title: string
-  /** Explicação detalhada exibida ao expandir o accordion */
   details: React.ReactNode
-  /** Destaca o passo como crítico/importante */
   highlight?: boolean
 }
 
 export type ModuleCardProps = {
   number: string
   title: string
-  /** Ícone já renderizado (ex.: <Camera className="h-4 w-4" />) */
   icon: React.ReactNode
   duration?: string
   team?: string
@@ -43,84 +45,82 @@ export function ModuleCard({
   steps,
   warning,
   children,
-  accentClass = "bg-accent text-accent-foreground",
 }: ModuleCardProps) {
+  const allItemValues = React.useMemo(
+    () => steps.map((_, idx) => `modulo-${number}-passo-${idx}`),
+    [steps, number]
+  )
+
+  const [activeItems, setActiveItems] = React.useState<string[]>([])
+
+  // Abre todas as abas automaticamente antes de disparar o diálogo de impressão
+  React.useEffect(() => {
+    const handleBeforePrint = () => {
+      setActiveItems(allItemValues)
+    }
+    window.addEventListener("beforeprint", handleBeforePrint)
+    return () => window.removeEventListener("beforeprint", handleBeforePrint)
+  }, [allItemValues])
+
   return (
     <article
       id={`modulo-${number}`}
-      className="scroll-mt-24 rounded-2xl border border-border bg-card shadow-sm overflow-hidden"
+      className="scroll-mt-20 border border-border bg-card overflow-hidden transition-all print:border-black print:mb-3"
     >
-      {/* Cabeçalho */}
-      <header className="flex items-start gap-4 p-5 md:p-6 border-b border-border bg-secondary/40">
-        <div
-          className={cn(
-            "flex shrink-0 items-center justify-center rounded-xl h-14 w-14 md:h-16 md:w-16 font-display font-bold text-2xl md:text-3xl",
-            accentClass,
-          )}
-          aria-hidden="true"
-        >
-          {number}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
-            <span className="inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
-              {icon}
-            </span>
-            <span>Módulo {number}</span>
+      {/* Cabeçalho Técnico do Módulo */}
+      <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 md:p-5 border-b border-border bg-card print:p-2 print:border-black">
+        <div className="flex items-start sm:items-center gap-3.5">
+          <div className="flex shrink-0 items-center justify-center h-10 w-10 md:h-11 md:w-11 border border-border bg-secondary/50 text-foreground font-mono font-bold text-base md:text-lg print:border-black print:h-8 print:w-8 print:text-sm">
+            {number.padStart(2, "0")}
           </div>
-          <h3 className="font-display text-xl md:text-2xl font-bold text-foreground text-balance leading-tight">
-            {title}
-          </h3>
+          <div>
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5 print:text-black">
+              <span className="inline-flex h-4 w-4 items-center justify-center text-accent print:text-black" aria-hidden="true">
+                {icon}
+              </span>
+              <span className="font-mono">Módulo {number} · {steps.length} Etapas</span>
+            </div>
+            <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight print:text-base print:text-black">
+              {title}
+            </h3>
+          </div>
         </div>
       </header>
 
-      {/* Meta info */}
-      {(duration || team || tools) && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-5 md:px-6 md:py-4 bg-muted/30 border-b border-border">
+      {/* Faixa de Parâmetros Técnicos (Tempo, Equipe, Ferramentas) */}
+      {(duration || team || (tools && tools.length > 0)) && (
+        <div className="flex flex-wrap items-center gap-y-2.5 gap-x-6 px-4 md:px-6 py-3 bg-secondary/20 border-b border-border text-xs print:p-2 print:border-black print:bg-white">
           {duration && (
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-accent/15 text-foreground shrink-0">
-                <Clock className="h-4 w-4" aria-hidden="true" />
-              </div>
-              <div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
-                  Tempo
-                </div>
-                <div className="text-sm font-semibold text-foreground">{duration}</div>
-              </div>
+            <div className="flex items-center gap-2">
+              <Clock className="h-3.5 w-3.5 text-muted-foreground shrink-0 print:text-black" strokeWidth={1.25} />
+              <span className="text-muted-foreground font-mono uppercase tracking-wider text-[11px] print:text-black">Tempo:</span>
+              <span className="font-semibold text-foreground print:text-black">{duration}</span>
             </div>
           )}
           {team && (
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-accent/15 text-foreground shrink-0">
-                <Users className="h-4 w-4" aria-hidden="true" />
-              </div>
-              <div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
-                  Equipe
-                </div>
-                <div className="text-sm font-semibold text-foreground">{team}</div>
-              </div>
+            <div className="flex items-center gap-2">
+              <Users className="h-3.5 w-3.5 text-muted-foreground shrink-0 print:text-black" strokeWidth={1.25} />
+              <span className="text-muted-foreground font-mono uppercase tracking-wider text-[11px] print:text-black">Equipe:</span>
+              <span className="font-semibold text-foreground print:text-black">{team}</span>
             </div>
           )}
           {tools && tools.length > 0 && (
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-accent/15 text-foreground shrink-0">
-                <Wrench className="h-4 w-4" aria-hidden="true" />
-              </div>
-              <div>
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
-                  Ferramentas
-                </div>
-                <div className="text-sm font-semibold text-foreground">{tools.join(" · ")}</div>
-              </div>
+            <div className="flex items-center gap-2">
+              <Wrench className="h-3.5 w-3.5 text-muted-foreground shrink-0 print:text-black" strokeWidth={1.25} />
+              <span className="text-muted-foreground font-mono uppercase tracking-wider text-[11px] print:text-black">Ferramentas:</span>
+              <span className="font-semibold text-foreground print:text-black">{tools.join(" · ")}</span>
             </div>
           )}
         </div>
       )}
 
-      {/* Passos em accordion */}
-      <Accordion type="multiple" className="divide-y divide-border">
+      {/* MODO ACORDEOM */}
+      <Accordion
+        type="multiple"
+        value={activeItems}
+        onValueChange={setActiveItems}
+        className="divide-y divide-border print:divide-black"
+      >
         {steps.map((step, idx) => {
           const itemValue = `modulo-${number}-passo-${idx}`
           return (
@@ -128,36 +128,43 @@ export function ModuleCard({
               key={itemValue}
               value={itemValue}
               className={cn(
-                "border-0",
-                step.highlight && "bg-accent/10",
+                "border-0 print:break-inside-avoid print:page-break-inside-avoid",
+                step.highlight && "bg-emerald-500/[0.02] print:bg-white",
               )}
             >
               <AccordionTrigger
-                className={cn(
-                  "px-5 md:px-6 py-4 md:py-5 hover:no-underline gap-4 items-start text-left",
-                  "[&[data-state=open]>div>div:first-child]:bg-primary",
-                  "[&[data-state=open]>div>div:first-child]:text-primary-foreground",
-                )}
+                className="px-4 md:px-6 py-3.5 md:py-4 hover:no-underline gap-4 items-center text-left group print:p-2 print:border-b print:border-black/40"
               >
-                <div className="flex items-start gap-4 flex-1 min-w-0">
+                <div className="flex items-center gap-3.5 flex-1 min-w-0">
                   <div
                     className={cn(
-                      "flex shrink-0 items-center justify-center h-8 w-8 rounded-full font-display font-bold text-sm transition-colors",
+                      "flex shrink-0 items-center justify-center h-7 w-7 font-mono font-bold text-xs border transition-colors print:border-black print:text-black",
                       step.highlight
-                        ? "bg-accent text-accent-foreground"
-                        : "bg-secondary text-foreground border border-border",
+                        ? "border-emerald-600/40 bg-emerald-500/10 text-emerald-800 dark:text-emerald-300"
+                        : "border-border bg-secondary/70 text-muted-foreground",
                     )}
                     aria-hidden="true"
                   >
-                    {idx + 1}
+                    {String(idx + 1).padStart(2, "0")}
                   </div>
-                  <span className="text-base md:text-[17px] leading-snug text-foreground font-semibold pt-1 text-pretty">
-                    {step.title}
-                  </span>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 flex-1 min-w-0">
+                    <span className="text-sm md:text-base font-semibold text-foreground group-hover:text-accent transition-colors leading-snug print:text-black print:text-xs">
+                      {step.title}
+                    </span>
+                    {step.highlight && (
+                      <span className="inline-flex items-center gap-1 w-fit px-1.5 py-0.5 text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-600/30 print:border-black print:text-black print:bg-white">
+                        <AlertCircle className="h-3 w-3 print:hidden" strokeWidth={1.25} />
+                        [CRÍTICO]
+                      </span>
+                    )}
+                  </div>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="px-5 md:px-6 pb-5 md:pb-6">
-                <div className="ml-12 rounded-xl border border-border bg-background/60 p-4 md:p-5 text-[15px] md:text-base leading-relaxed text-foreground/90">
+              <AccordionContent
+                forceMount
+                className="px-4 md:px-6 pb-4 md:pb-5 pt-0 print:p-2 print:block! print:h-auto!"
+              >
+                <div className="ml-10.5 border border-border bg-secondary/15 p-3.5 md:p-4 text-xs md:text-sm leading-relaxed text-foreground/90 print:ml-0 print:border-black print:bg-white print:p-2 print:text-xs">
                   {step.details}
                 </div>
               </AccordionContent>
@@ -166,18 +173,19 @@ export function ModuleCard({
         })}
       </Accordion>
 
+      {/* Aviso Técnico */}
       {warning && (
-        <div className="m-5 md:m-6 rounded-xl border-l-4 border-destructive bg-destructive/10 p-4">
+        <div className="m-4 md:m-5 border border-border bg-secondary/30 p-3.5 md:p-4 print:m-2 print:border-black print:border-l-4 print:bg-white">
           <div className="flex items-start gap-3">
-            <span
-              className="font-display text-xs font-bold uppercase tracking-wider text-destructive bg-destructive/15 px-2 py-1 rounded"
-              aria-label="Atenção"
-            >
-              Atenção
-            </span>
-            <p className="text-sm md:text-base text-foreground leading-relaxed font-medium">
-              {warning}
-            </p>
+            <AlertTriangle className="h-4 w-4 text-accent shrink-0 mt-0.5 print:text-black" strokeWidth={1.25} />
+            <div>
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-accent block mb-0.5 print:text-black">
+                Aviso Técnico de Segurança e Desempenho
+              </span>
+              <p className="text-xs md:text-sm text-foreground/90 leading-relaxed font-medium print:text-black print:text-xs">
+                {warning}
+              </p>
+            </div>
           </div>
         </div>
       )}

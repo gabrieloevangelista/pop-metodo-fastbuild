@@ -208,7 +208,7 @@ const modules: Array<{
  title: "Marcar dutos e caixinhas com tinta spray",
  highlight: true,
  details:
- "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr������ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
+ "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr��������ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
  },
  {
  title: "Abrir os dutos com soprador térmico",
@@ -495,13 +495,13 @@ export default function Page() {
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-start gap-3 md:gap-4">
-            <div className="relative shrink-0 h-28 w-24 md:h-32 md:w-28 overflow-hidden border border-border bg-secondary">
+            <div className="relative shrink-0 h-44 w-36 md:h-48 md:w-40 overflow-hidden border border-border bg-secondary">
               <Image
                 src="/images/ronildo-queiroz.jpg"
                 alt="Ronildo Queiroz de capacete e colete de segurança segurando um projeto arquitetônico"
                 fill
-                sizes="112px"
-                className="object-cover object-top"
+  sizes="160px"
+  className="object-cover object-top"
               />
             </div>
             <div className="flex flex-col gap-1.5 min-w-0">

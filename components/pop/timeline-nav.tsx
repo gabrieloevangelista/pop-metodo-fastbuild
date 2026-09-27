@@ -9,7 +9,7 @@ export type TimelineItem = {
 
 export function TimelineNav({ items }: { items: TimelineItem[] }) {
   return (
-    <nav aria-label="Etapas do procedimento" className="rounded-none border border-border/80 bg-card p-4 md:p-5 ">
+    <nav aria-label="Etapas do procedimento" className="rounded-none border border-border/80 bg-card p-3 md:p-4">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 mb-3 border-b border-border/60">
         <div className="flex items-center gap-2">
           <span className="flex h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
@@ -21,7 +21,7 @@ export function TimelineNav({ items }: { items: TimelineItem[] }) {
           Navegação rápida por módulo executivo
         </span>
       </div>
-      <ol className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
+      <ol className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-1.5 sm:gap-2">
         {items.map((item) => (
           <li key={item.number}>
             <a

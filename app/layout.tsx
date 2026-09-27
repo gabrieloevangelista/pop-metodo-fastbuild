@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'POP 6 — Montagem de Painel Monolítico | Método FASTBUILD',
+  title: 'POP 6 · Montagem de Painel Monolítico | Método FASTBUILD',
   description:
     'Procedimento Operacional Padrão e manual de canteiro para montagem de painel monolítico pelo Método FASTBUILD.',
   icons: {

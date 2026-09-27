@@ -126,7 +126,7 @@ const modules: Array<{
  {
  title: "Levantar e posicionar os painéis",
  details:
- "Levante o painel e apoie-o nos esquadros e arranques, seguindo a numeração do projeto fornecida pelo fabricante. Cada painel tem uma posição específica — não troque a ordem.",
+ "Levante o painel e apoie-o nos esquadros e arranques, seguindo a numeração do projeto fornecida pelo fabricante. Cada painel tem uma posição específica. Não troque a ordem.",
  },
  {
  title: "Amarrar os painéis com arame e torquês",
@@ -143,22 +143,22 @@ const modules: Array<{
  {
  title: "Vergas e contra-vergas (malha U) nas janelas",
  details:
- "Coloque vergas e contra-vergas com malha U nas 4 extremidades de cada janela — total de 4 unidades por janela. Prenda com arame usando a torquês.",
+ "Coloque vergas e contra-vergas com malha U nas 4 extremidades de cada janela, total de 4 unidades por janela. Prenda com arame usando a torquês.",
  },
  {
  title: "Vergas (malha U) nas portas",
  details:
- "Coloque verga em malha U na parte de cima de cada porta — 1 unidade por porta. Prenda com arame e torquês.",
+ "Coloque verga em malha U na parte de cima de cada porta, 1 unidade por porta. Prenda com arame e torquês.",
  },
  {
  title: "Malha “band-ai” a 45° nas quinas das janelas",
  details:
- "Aplique a malha “band-ai” a 45° em relação à quina, em todas as quinas das janelas, dentro e fora — 8 unidades por janela. Prenda com arame e torquês.",
+ "Aplique a malha “band-ai” a 45° em relação à quina, em todas as quinas das janelas, dentro e fora, 8 unidades por janela. Prenda com arame e torquês.",
  },
  {
  title: "Malha “band-ai” a 45° nas quinas das portas",
  details:
- "Aplique a malha “band-ai” a 45° em todas as quinas das portas, dentro e fora — 4 unidades por porta. Prenda com arame e torquês.",
+ "Aplique a malha “band-ai” a 45° em todas as quinas das portas, dentro e fora, 4 unidades por porta. Prenda com arame e torquês.",
  },
  ],
  },
@@ -195,19 +195,19 @@ const modules: Array<{
  {
  number: "6", title: "Reboco Estrutural",
  icon: <PaintRoller className="h-4 w-4" strokeWidth={1.25} aria-hidden="true" />,
- duration: "50–60 min entre camadas · 48 h cura",
+ duration: "50 a 60 min entre camadas · 48 h cura",
  team: "Assistentes de Instalação",
  tools: ["Projetora", "Régua de alumínio", "Mestras / taliscas"],
  warning:
- "EVITE PROJETAR GRANDE QUANTIDADE DE UMA SÓ VEZ — a massa pode “desplacar” da parede.",
+ "EVITE PROJETAR GRANDE QUANTIDADE DE UMA SÓ VEZ. A massa pode “desplacar” da parede.",
  steps: [
  {
- title: "1ª camada — Emboço (cobrir a malha)",
+ title: "1ª camada: Emboço (cobrir a malha)",
  details:
  "Projete a argamassa para cobrir totalmente a malha. Essa primeira camada chama-se emboço. Trabalhe em pequenas áreas por vez para evitar desplacamento. Após projetar, aguarde de 50 a 60 minutos antes de iniciar a 2ª camada.",
  },
  {
- title: "2ª camada — Projeção e nivelamento",
+ title: "2ª camada: Projeção e nivelamento",
  details:
  "Use o mesmo traço de argamassa. Enquanto um Assistente de Instalação projeta a 2ª camada, o segundo segue logo atrás (após 30 minutos da projeção) nivelando com uma régua de alumínio.",
  },
@@ -337,34 +337,34 @@ export default function Page() {
  <main className="min-h-svh bg-background text-foreground">
  {/* Cabeçalho Técnico Fixo / Barra de Governança */}
  <header className="border-b border-border/80 bg-card/95 backdrop-blur-md sticky top-0 z-30 ">
- <div className="max-w-5xl mx-auto px-4 md:px-6 py-3 md:py-3.5">
- <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
- <div className="flex items-center gap-3">
- <div className="flex items-center justify-center h-10 w-10 border border-border bg-white p-1 shrink-0">
+ <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-2">
+ <div className="flex items-center justify-between gap-2">
+ <div className="flex items-center gap-2.5 min-w-0">
+ <div className="flex items-center justify-center h-9 w-9 border border-border bg-card p-1 shrink-0">
  <img
  src="/logo-mfb.png"
  alt="Logo Método FASTBUILD"
  className="h-full w-full object-contain"
  />
  </div>
- <div>
+ <div className="min-w-0">
  <div className="flex items-center gap-2">
  <span className="text-[10px] font-bold uppercase tracking-widest text-accent font-mono">
  Método FASTBUILD
  </span>
- <span className="text-muted-foreground/40 text-xs">|</span>
- <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-mono">
+ <span className="hidden sm:inline text-muted-foreground/40 text-xs">|</span>
+ <span className="hidden sm:inline text-[10px] uppercase tracking-wider text-muted-foreground font-mono">
  POP-06 · Rev. R04
  </span>
  </div>
- <div className="text-sm md:text-base font-bold text-foreground leading-tight">
+ <div className="text-sm font-bold text-foreground leading-tight truncate">
  Montagem de Painel Monolítico
  </div>
  </div>
  </div>
 
  {/* Ações Globais: Seletor de Modo (Cards vs Lista) & Botão Imprimir */}
- <div className="flex flex-wrap items-center gap-2 self-end sm:self-auto">
+ <div className="flex items-center gap-1.5 shrink-0">
  <AccordionControls />
  <PrintButton />
  </div>
@@ -372,10 +372,10 @@ export default function Page() {
  </div>
  </header>
 
- <div className="max-w-5xl mx-auto px-4 md:px-6 py-6 md:py-10 space-y-6 md:space-y-8">
+ <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-3 md:py-5 flex flex-col gap-3 md:gap-4">
  {/* Banner Técnico da Norma / Documentação */}
- <section className="rounded-none border border-border/80 bg-card p-6 md:p-8 relative overflow-hidden">
- <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+ <section className="rounded-none border border-border/80 bg-card p-4 md:p-6 relative overflow-hidden">
+ <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
  <div className="flex items-start gap-4 max-w-2xl">
  <div>
  <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -425,7 +425,7 @@ export default function Page() {
  </section>
 
  {/* Informações Técnicas Gerais (Objetivo, Responsáveis, Recursos) */}
- <section className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+ <section className="grid grid-cols-1 md:grid-cols-3 gap-3">
  <div className="rounded-none border border-border/80 bg-card p-4 md:p-5 flex flex-col justify-between">
  <div>
  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2.5 font-mono">
@@ -483,14 +483,15 @@ export default function Page() {
 
  {/* Filtro / Busca de Termos de Canteiro */}
  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
- <div className="relative flex-1 max-w-md">
- <Search className="h-3.5 w-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" strokeWidth={1.25} />
+ <div className="relative flex-1">
+ <Search className="h-4 w-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" strokeWidth={1.25} aria-hidden="true" />
  <input
- type="text"
+ type="search"
+ aria-label="Buscar no manual"
  value={searchQuery}
  onChange={(e) => setSearchQuery(e.target.value)}
  placeholder="Buscar etapa, ferramenta ou material (ex: verga, martelete, argamassa)..."
- className="w-full pl-8.5 pr-3 py-1.5 rounded-none border border-border/80 bg-card text-xs text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:border-accent/60 transition-colors "
+ className="w-full pl-9 pr-3 py-2.5 rounded-none border border-border/80 bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:border-accent/60 transition-colors "
  />
  </div>
 
@@ -501,7 +502,7 @@ export default function Page() {
  <TimelineNav items={timelineItems} />
 
  {/* Módulos do Procedimento com Modo Cards / Acordeom */}
- <section className="space-y-5 md:space-y-6">
+ <section className="flex flex-col gap-3 md:gap-4">
  {filteredModules.length > 0 ? (
  filteredModules.map((m) => (
  <ModuleCard
@@ -533,7 +534,7 @@ export default function Page() {
  </section>
 
  {/* Rodapé Técnico de Engenharia */}
- <footer className="border-t border-border/80 pt-6 pb-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+ <footer className="border-t border-border/80 pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
  <div className="flex items-center gap-2.5">
  <img src="/logo-mfb.png" alt="Logo Método FASTBUILD" className="h-5 w-5 object-contain" />
  <span className="font-bold text-foreground font-mono">Método FASTBUILD</span>

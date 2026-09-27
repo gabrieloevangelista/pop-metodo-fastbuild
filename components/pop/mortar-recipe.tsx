@@ -81,7 +81,7 @@ export function MortarRecipe() {
       <div className="flex items-start gap-3 border border-accent/40 bg-accent/10 px-4 py-3 text-xs md:text-sm leading-relaxed text-foreground">
         <Info className="h-4 w-4 text-accent shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
         <p>
-          <strong>Usando o Smart Additive Drylevis?</strong> Não é necessário adicionar a fibra de polipropileno — ele
+          <strong>Usando o Smart Additive Drylevis?</strong> Não é necessário adicionar a fibra de polipropileno, pois ele
           já vem com fibra. Adicione a fibra <strong>somente se usar aditivo de outra marca</strong>.
         </p>
       </div>

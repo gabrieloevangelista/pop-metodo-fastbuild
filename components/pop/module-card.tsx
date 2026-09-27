@@ -11,7 +11,12 @@ import {
   ChevronsDownUp,
   ChevronsUpDown,
 } from "lucide-react"
-import { EXPAND_ALL_EVENT, COLLAPSE_ALL_EVENT } from "@/components/pop/accordion-controls"
+import {
+  EXPAND_ALL_EVENT,
+  COLLAPSE_ALL_EVENT,
+  MODULE_STATE_EVENT,
+  type ModuleStateDetail,
+} from "@/components/pop/accordion-controls"
 import { cn } from "@/lib/utils"
 import {
   Accordion,
@@ -61,6 +66,14 @@ export function ModuleCard({
   activeItemsRef.current = activeItems
 
   const allOpen = activeItems.length === allItemValues.length
+  const anyOpen = activeItems.length > 0
+
+  React.useEffect(() => {
+    if (itemsBeforePrint.current) return
+    window.dispatchEvent(
+      new CustomEvent<ModuleStateDetail>(MODULE_STATE_EVENT, { detail: { id: number, anyOpen } })
+    )
+  }, [anyOpen, number])
 
   React.useEffect(() => {
     const expandAll = () => setActiveItems(allItemValues)

@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import {
  HardHat,
  Ruler,
@@ -173,14 +174,16 @@ const modules: Array<{
  "Atenção à orientação: as paredes ficam na vertical, mas os painéis que formam a parte de cima e de baixo da janela são colocados na posição HORIZONTAL. Conferir o projeto antes de fixar.",
  },
  {
- title: "Vergas e contra-vergas (malha U) nas janelas",
+ title: "Malha U nas portas e janelas",
+ highlight: true,
  details:
- "Coloque vergas e contra-vergas com malha U nas 4 extremidades de cada janela, total de 4 unidades por janela. Prenda com arame usando a torquês.",
+ "Coloque a malha U (vergas e contra-vergas) em todas as aberturas. Janelas: nas 4 extremidades, total de 4 unidades por janela. Portas: na parte de cima, 1 unidade por porta. Prenda com arame usando a torquês.",
  },
  {
- title: "Vergas (malha U) nas portas",
+ title: "Malha L em todos os cantos da casa (interno e externo)",
+ highlight: true,
  details:
- "Coloque verga em malha U na parte de cima de cada porta, 1 unidade por porta. Prenda com arame e torquês.",
+ "Coloque a malha L em TODOS os cantos da casa, tanto na face interna quanto na face externa das paredes. Ela reforça o encontro entre os painéis e evita fissuras nas quinas. Prenda com arame usando a torquês.",
  },
  {
  title: "Malha “band-ai” a 45° nas quinas das janelas",
@@ -205,7 +208,7 @@ const modules: Array<{
  title: "Marcar dutos e caixinhas com tinta spray",
  highlight: true,
  details:
- "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidráulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
+ "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr��ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
  },
  {
  title: "Abrir os dutos com soprador térmico",
@@ -406,9 +409,9 @@ export default function Page() {
 
  <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-3 md:py-5 flex flex-col gap-3 md:gap-4">
  {/* Banner Técnico da Norma / Documentação */}
- <section className="rounded-none border border-border/80 bg-card p-4 md:p-6 relative overflow-hidden">
- <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
- <div className="flex items-start gap-4 max-w-2xl">
+ <section className="rounded-none border border-border/80 bg-card relative overflow-hidden">
+ <div className="p-4 md:p-6 flex flex-col md:flex-row md:items-start justify-between gap-4 md:gap-6">
+ <div className="flex flex-col gap-4 max-w-2xl">
  <div>
  <div className="flex flex-wrap items-center gap-2 mb-3">
  <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-accent/10 text-accent border border-accent/20">
@@ -422,16 +425,15 @@ export default function Page() {
  Manual Prático Método FASTBUILD
  </h1>
  <p className="text-base md:text-lg font-semibold text-foreground/80 mb-2.5">
- Montagem de Painel Monolítico
+ Etapas da montagem
  </p>
  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed max-w-xl">
  Manual prático de execução para canteiro de obras. Orientação de gabaritagem, ancoragem em radier, alinhamento de esquadros, passagens técnicas e reboco estrutural com argamassa projetada.
  </p>
  </div>
- </div>
 
  {/* Painel de Indicadores Técnicos de Obra */}
- <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 gap-2.5 shrink-0">
+ <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
  <div className="p-3 rounded-none border border-border/70 bg-secondary/30">
  <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-mono">Módulos</div>
  <div className="text-lg font-bold font-mono text-foreground mt-0.5">08</div>
@@ -454,7 +456,98 @@ export default function Page() {
  </div>
  </div>
  </div>
+
+ <figure className="shrink-0 w-full sm:w-72 md:w-64 lg:w-72 self-center md:self-start flex flex-col gap-1.5 border border-border/80 bg-secondary/30 p-2">
+ <Image
+ src="/images/casa-pronta.png"
+ alt="Sobrado pronto construído com o Método FASTBUILD em Painel Monolítico"
+ width={1080}
+ height={846}
+ priority
+ sizes="(min-width: 768px) 288px, 100vw"
+ className="w-full h-auto object-contain"
+ />
+ <figcaption className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground text-center">
+ Casa pronta · Painel Monolítico
+ </figcaption>
+ </figure>
+ </div>
  </section>
+
+        {/* Sobre o sistema: origem e normas */}
+        <section
+          aria-labelledby="sobre-sistema-titulo"
+          className="rounded-none border border-border/80 bg-card p-4 md:p-5"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-secondary text-foreground border border-border">
+              Sobre o sistema
+            </span>
+            <h2
+              id="sobre-sistema-titulo"
+              className="text-base md:text-lg font-bold tracking-tight text-foreground text-balance"
+            >
+              O que é o Painel Monolítico
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-5">
+            <div className="md:col-span-3 flex flex-col sm:flex-row gap-3 md:gap-4">
+              <figure className="shrink-0 flex flex-col items-center gap-1.5 border border-border/80 bg-secondary/30 p-2 sm:w-36 md:w-40">
+                <Image
+                  src="/images/painel-monolitico.png"
+                  alt="Painel Monolítico: núcleo de EPS entre duas telas de aço soldadas"
+                  width={270}
+                  height={360}
+                  className="h-44 sm:h-auto w-auto object-contain"
+                />
+                <figcaption className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground text-center">
+                  Painel Monolítico
+                </figcaption>
+              </figure>
+            <div className="flex flex-col gap-3 text-sm text-foreground/85 leading-relaxed">
+              <p className="text-pretty">
+                O Painel Monolítico é formado por um núcleo de EPS (isopor) entre duas telas de aço
+                soldadas e unidas por conectores. Depois de montado na obra, recebe argamassa projetada
+                nos dois lados e vira uma parede estrutural única, leve, resistente e com ótimo
+                isolamento térmico e acústico.
+              </p>
+              <p className="text-pretty">
+                <strong className="font-semibold text-foreground">Origem:</strong> o sistema foi
+                desenvolvido na Itália, na década de 1970, e se espalhou pela Europa e América Latina.{" "}
+                <strong className="font-semibold text-foreground">No Brasil:</strong> chegou no início
+                dos anos 1990 e hoje é usado em casas, sobrados e obras comerciais.
+              </p>
+            </div>
+            </div>
+
+            <div className="md:col-span-2 flex flex-col gap-2">
+              <div className="rounded-none border-2 border-primary bg-primary/5 p-3">
+                <div className="text-[10px] uppercase tracking-wider font-mono font-bold text-primary">
+                  Norma que regulamenta
+                </div>
+                <div className="text-base font-bold text-foreground mt-0.5">Diretriz SINAT nº 011</div>
+                <p className="text-xs text-muted-foreground leading-relaxed mt-1">
+                  Diretriz do PBQP-H / Ministério das Cidades para paredes de painéis de EPS com telas
+                  de aço e revestimento de argamassa. Base para o DATec do sistema.
+                </p>
+              </div>
+
+              <div className="rounded-none border border-border/80 bg-secondary/30 p-3">
+                <div className="text-[10px] uppercase tracking-wider font-mono font-semibold text-muted-foreground mb-1.5">
+                  Normas ABNT aplicadas
+                </div>
+                <ul className="flex flex-col gap-1 text-xs text-foreground/85">
+                  <li><strong className="font-mono">NBR 15575</strong> · Desempenho de edificações</li>
+                  <li><strong className="font-mono">NBR 11752</strong> · EPS para construção (Classe F, antichama)</li>
+                  <li><strong className="font-mono">NBR 7481</strong> · Tela de aço soldada</li>
+                  <li><strong className="font-mono">NBR 13281</strong> · Argamassa de revestimento</li>
+                  <li><strong className="font-mono">NBR 13749</strong> · Revestimento de paredes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Pré-requisitos obrigatórios antes de iniciar a obra */}
         <section

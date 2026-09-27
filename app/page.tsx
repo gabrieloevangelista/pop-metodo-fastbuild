@@ -424,7 +424,77 @@ export default function Page() {
  </div>
  </section>
 
- {/* Informações Técnicas Gerais (Objetivo, Responsáveis, Recursos) */}
+        {/* Pré-requisitos obrigatórios antes de iniciar a obra */}
+        <section
+          aria-labelledby="pre-requisitos-titulo"
+          className="rounded-none border-2 border-accent bg-accent/5 p-4 md:p-5"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-bold uppercase tracking-wider bg-accent text-accent-foreground">
+              Importante
+            </span>
+            <h2
+              id="pre-requisitos-titulo"
+              className="text-base md:text-lg font-bold tracking-tight text-foreground text-balance"
+            >
+              Antes de começar a obra
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="flex items-start gap-3 rounded-none border border-border/80 bg-card p-3 md:p-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-primary text-primary-foreground">
+                <FileSpreadsheet className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-sm md:text-base font-bold text-foreground">
+                  Todos os projetos em mãos
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Nunca inicie a montagem sem os projetos aprovados e impressos no canteiro. Eles definem a posição exata de cada painel, vão e passagem.
+                </p>
+                <ul className="flex flex-wrap gap-1.5 pt-1">
+                  {["Arquitetônico", "Estrutural", "Elétrico", "Hidráulico", "Paginação dos painéis"].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-1 px-2 py-0.5 rounded-none text-xs font-medium bg-secondary border border-border text-foreground"
+                    >
+                      <CheckCircle2 className="h-3 w-3 text-accent" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 rounded-none border border-border/80 bg-card p-3 md:p-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-primary text-primary-foreground">
+                <Building2 className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <h3 className="text-sm md:text-base font-bold text-foreground">
+                  Acompanhamento técnico
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  A obra deve ter acompanhamento de <strong className="text-foreground">engenheiro</strong> e <strong className="text-foreground">arquiteto</strong> responsáveis. Qualquer dúvida ou divergência no projeto deve ser consultada com eles antes de executar.
+                </p>
+                <ul className="flex flex-wrap gap-1.5 pt-1">
+                  {["Engenheiro civil", "Arquiteto", "ART / RRT emitida"].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-1 px-2 py-0.5 rounded-none text-xs font-medium bg-secondary border border-border text-foreground"
+                    >
+                      <HardHat className="h-3 w-3 text-accent" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Informações Técnicas Gerais (Objetivo, Responsáveis, Recursos) */}
  <section className="grid grid-cols-1 md:grid-cols-3 gap-3">
  <div className="rounded-none border border-border/80 bg-card p-4 md:p-5 flex flex-col justify-between">
  <div>

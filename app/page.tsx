@@ -24,6 +24,7 @@ import { ModuleCard, type StepItem } from "@/components/pop/module-card"
 import { TimelineNav } from "@/components/pop/timeline-nav"
 import { MortarRecipe } from "@/components/pop/mortar-recipe"
 import { PrintButton } from "@/components/pop/print-button"
+import { AccordionControls } from "@/components/pop/accordion-controls"
 import { cn } from "@/lib/utils"
 
 const modules: Array<{
@@ -363,9 +364,8 @@ export default function Page() {
  </div>
 
  {/* Ações Globais: Seletor de Modo (Cards vs Lista) & Botão Imprimir */}
- <div className="flex items-center gap-2 self-end sm:self-auto">
- 
-
+ <div className="flex flex-wrap items-center gap-2 self-end sm:self-auto">
+ <AccordionControls />
  <PrintButton />
  </div>
  </div>

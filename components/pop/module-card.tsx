@@ -1,13 +1,17 @@
 "use client"
 
 import * as React from "react"
+import { flushSync } from "react-dom"
 import {
   Clock,
   Users,
   Wrench,
   AlertTriangle,
-  AlertCircle
+  AlertCircle,
+  ChevronsDownUp,
+  ChevronsUpDown,
 } from "lucide-react"
+import { EXPAND_ALL_EVENT, COLLAPSE_ALL_EVENT } from "@/components/pop/accordion-controls"
 import { cn } from "@/lib/utils"
 import {
   Accordion,
@@ -52,14 +56,38 @@ export function ModuleCard({
   )
 
   const [activeItems, setActiveItems] = React.useState<string[]>([])
+  const itemsBeforePrint = React.useRef<string[] | null>(null)
+  const activeItemsRef = React.useRef(activeItems)
+  activeItemsRef.current = activeItems
 
-  // Abre todas as abas automaticamente antes de disparar o diálogo de impressão
+  const allOpen = activeItems.length === allItemValues.length
+
   React.useEffect(() => {
+    const expandAll = () => setActiveItems(allItemValues)
+    const collapseAll = () => setActiveItems([])
+
+    // flushSync garante que o conteúdo esteja no DOM antes do navegador montar a impressão
     const handleBeforePrint = () => {
-      setActiveItems(allItemValues)
+      itemsBeforePrint.current = activeItemsRef.current
+      flushSync(() => setActiveItems(allItemValues))
     }
+    const handleAfterPrint = () => {
+      if (itemsBeforePrint.current) {
+        setActiveItems(itemsBeforePrint.current)
+        itemsBeforePrint.current = null
+      }
+    }
+
+    window.addEventListener(EXPAND_ALL_EVENT, expandAll)
+    window.addEventListener(COLLAPSE_ALL_EVENT, collapseAll)
     window.addEventListener("beforeprint", handleBeforePrint)
-    return () => window.removeEventListener("beforeprint", handleBeforePrint)
+    window.addEventListener("afterprint", handleAfterPrint)
+    return () => {
+      window.removeEventListener(EXPAND_ALL_EVENT, expandAll)
+      window.removeEventListener(COLLAPSE_ALL_EVENT, collapseAll)
+      window.removeEventListener("beforeprint", handleBeforePrint)
+      window.removeEventListener("afterprint", handleAfterPrint)
+    }
   }, [allItemValues])
 
   return (
@@ -85,6 +113,20 @@ export function ModuleCard({
             </h3>
           </div>
         </div>
+        <button
+          type="button"
+          onClick={() => setActiveItems(allOpen ? [] : allItemValues)}
+          aria-expanded={allOpen}
+          aria-controls={`modulo-${number}-etapas`}
+          className="inline-flex w-fit shrink-0 items-center gap-1.5 self-start sm:self-auto border border-border/80 bg-card px-3 py-1.5 text-xs font-medium text-foreground hover:bg-secondary hover:border-accent/40 transition-colors cursor-pointer print:hidden"
+        >
+          {allOpen ? (
+            <ChevronsDownUp className="h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
+          ) : (
+            <ChevronsUpDown className="h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
+          )}
+          <span>{allOpen ? "Recolher módulo" : "Expandir módulo"}</span>
+        </button>
       </header>
 
       {/* Faixa de Parâmetros Técnicos (Tempo, Equipe, Ferramentas) */}
@@ -116,6 +158,7 @@ export function ModuleCard({
 
       {/* MODO ACORDEOM */}
       <Accordion
+        id={`modulo-${number}-etapas`}
         type="multiple"
         value={activeItems}
         onValueChange={setActiveItems}
@@ -161,8 +204,7 @@ export function ModuleCard({
                 </div>
               </AccordionTrigger>
               <AccordionContent
-                forceMount
-                className="px-4 md:px-6 pb-4 md:pb-5 pt-0 print:p-2 print:block! print:h-auto!"
+                className="px-4 md:px-6 pb-4 md:pb-5 pt-0 print:p-2"
               >
                 <div className="ml-10.5 border border-border bg-secondary/15 p-3.5 md:p-4 text-xs md:text-sm leading-relaxed text-foreground/90 print:ml-0 print:border-black print:bg-white print:p-2 print:text-xs">
                   {step.details}

@@ -208,7 +208,7 @@ const modules: Array<{
  title: "Marcar dutos e caixinhas com tinta spray",
  highlight: true,
  details:
- "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr��ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
+ "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr����ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
  },
  {
  title: "Abrir os dutos com soprador térmico",
@@ -389,11 +389,20 @@ export default function Page() {
  </span>
  <span className="hidden sm:inline text-muted-foreground/40 text-xs">|</span>
  <span className="hidden sm:inline text-[10px] uppercase tracking-wider text-muted-foreground font-mono">
- POP-06 · Rev. R04
+ POP-06
  </span>
  </div>
  <div className="text-sm font-bold text-foreground leading-tight truncate">
  Montagem de Painel Monolítico
+ </div>
+ <div className="flex items-center gap-1.5 mt-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+ <span>
+ Versão <strong className="font-semibold text-foreground">R04</strong>
+ </span>
+ <span className="text-muted-foreground/40" aria-hidden="true">·</span>
+ <span>
+ Data <time dateTime="2026-09-27" className="font-semibold text-foreground">27/09/2026</time>
+ </span>
  </div>
  </div>
  </div>
@@ -783,7 +792,7 @@ export default function Page() {
  <img src="/logo-mfb.png" alt="Logo Método FASTBUILD" className="h-5 w-5 object-contain" />
  <span className="font-bold text-foreground font-mono">Método FASTBUILD</span>
  <span>·</span>
- <span>POP-06 Revisão R04</span>
+ <span>POP-06 · Versão R04 · 27/09/2026</span>
  </div>
  <p className="font-mono text-[11px]">
  Método Construtivo Monolítico EPS · Uso exclusivo de canteiro

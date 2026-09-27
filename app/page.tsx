@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Image from "next/image"
+import { FastbuildAd } from "@/components/pop/fastbuild-ad"
 import {
  HardHat,
  Ruler,
@@ -107,12 +108,12 @@ const modules: Array<{
  title: "Aplicar a impermeabilização no caminho das paredes",
  highlight: true,
  details:
- "Misturar e aplicar 2 mãos de Smart Resina + 1 mão de Cimento Elástico em todo o caminho das paredes demarcadas. Aguarde o tempo de secagem entre as mãos conforme a indicação do fabricante.",
+ "Misture e aplique 2 demãos de Smart Resina e 1 demão de Cimento Elástico em todo o caminho das paredes demarcadas. Entre uma demão e outra, aguarde o tempo de secagem indicado pelo fabricante.",
  },
  {
  title: "Encaixar os arranques nos furos",
  details:
- "Somente após a aplicação completa da camada de impermeabilizante, os Assistentes de Instalação devem encaixar os arranques nos furos previamente abertos no módulo de demarcação.",
+ "Somente após a aplicação completa do impermeabilizante, os Assistentes de Instalação devem encaixar os arranques nos furos abertos na etapa de demarcação.",
  },
  ],
  },
@@ -171,13 +172,13 @@ const modules: Array<{
  title: "Painéis acima e abaixo da janela: posição HORIZONTAL",
  highlight: true,
  details:
- "Atenção à orientação: as paredes ficam na vertical, mas os painéis que formam a parte de cima e de baixo da janela são colocados na posição HORIZONTAL. Conferir o projeto antes de fixar.",
+ "Atenção à orientação: as paredes ficam na vertical, mas os painéis que formam a parte de cima e de baixo da janela são colocados na posição HORIZONTAL. Confira o projeto antes de fixar.",
  },
  {
  title: "Malha U nas portas e janelas",
  highlight: true,
  details:
- "Coloque a malha U (vergas e contra-vergas) em todas as aberturas. Janelas: nas 4 extremidades, total de 4 unidades por janela. Portas: na parte de cima, 1 unidade por porta. Prenda com arame usando a torquês.",
+ "Coloque a malha U (vergas e contravergas) em todas as aberturas. Janelas: nas 4 extremidades, total de 4 unidades por janela. Portas: na parte de cima, 1 unidade por porta. Prenda com arame usando a torquês.",
  },
  {
  title: "Malha L em todos os cantos da casa (interno e externo)",
@@ -186,14 +187,14 @@ const modules: Array<{
  "Coloque a malha L em TODOS os cantos da casa, tanto na face interna quanto na face externa das paredes. Ela reforça o encontro entre os painéis e evita fissuras nas quinas. Prenda com arame usando a torquês.",
  },
  {
- title: "Malha “band-ai” a 45° nas quinas das janelas",
+ title: "Malha “band-aid” a 45° nas quinas das janelas",
  details:
- "Aplique a malha “band-ai” a 45° em relação à quina, em todas as quinas das janelas, dentro e fora, 8 unidades por janela. Prenda com arame e torquês.",
+ "Aplique a malha “band-aid” a 45° em relação à quina, em todas as quinas das janelas, dentro e fora, 8 unidades por janela. Prenda com arame e torquês.",
  },
  {
- title: "Malha “band-ai” a 45° nas quinas das portas",
+ title: "Malha “band-aid” a 45° nas quinas das portas",
  details:
- "Aplique a malha “band-ai” a 45° em todas as quinas das portas, dentro e fora, 4 unidades por porta. Prenda com arame e torquês.",
+ "Aplique a malha “band-aid” a 45° em todas as quinas das portas, dentro e fora, 4 unidades por porta. Prenda com arame e torquês.",
  },
  ],
  },
@@ -208,7 +209,7 @@ const modules: Array<{
  title: "Marcar dutos e caixinhas com tinta spray",
  highlight: true,
  details:
- "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr��ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
+ "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidráulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
  },
  {
  title: "Abrir os dutos com soprador térmico",
@@ -303,7 +304,7 @@ const modules: Array<{
  title: "Cura da laje por 28 dias",
  highlight: true,
  details:
- "No dia seguinte à concretagem, inicie o processo de cura e mantenha a hidratação rigorosa da laje por 28 dias consecutivos até atingir a resistência de projeto (fck). O escoramento estrutural deve ser mantido conforme norma técnica durante o período de cura.",
+ "No dia seguinte à concretagem, inicie o processo de cura e mantenha a hidratação rigorosa da laje por 28 dias consecutivos até atingir a resistência de projeto (fck). Durante o período de cura, mantenha o escoramento estrutural conforme a norma técnica.",
  },
  {
  title: "Instalar a platibanda com painel monolítico",
@@ -378,22 +379,31 @@ export default function Page() {
  <div className="flex items-center justify-center h-9 w-9 border border-border bg-card p-1 shrink-0">
  <img
  src="/logo-mfb.png"
- alt="Logo Método FASTBUILD"
+ alt="Logo Método Fastbuild"
  className="h-full w-full object-contain"
  />
  </div>
  <div className="min-w-0">
  <div className="flex items-center gap-2">
  <span className="text-[10px] font-bold uppercase tracking-widest text-accent font-mono">
- Método FASTBUILD
+ Método Fastbuild
  </span>
  <span className="hidden sm:inline text-muted-foreground/40 text-xs">|</span>
  <span className="hidden sm:inline text-[10px] uppercase tracking-wider text-muted-foreground font-mono">
- POP-06 · Rev. R04
+ POP-06
  </span>
  </div>
  <div className="text-sm font-bold text-foreground leading-tight truncate">
  Montagem de Painel Monolítico
+ </div>
+ <div className="flex items-center gap-1.5 mt-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+ <span>
+ Versão <strong className="font-semibold text-foreground">R04</strong>
+ </span>
+ <span className="text-muted-foreground/40" aria-hidden="true">·</span>
+ <span>
+ Data <time dateTime="2026-09-27" className="font-semibold text-foreground">27/09/2026</time>
+ </span>
  </div>
  </div>
  </div>
@@ -408,7 +418,7 @@ export default function Page() {
  </header>
 
  <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-3 md:py-5 flex flex-col gap-3 md:gap-4">
- {/* Banner Técnico da Norma / Documentação */}
+ {/* Banner Técnico da Norma / Documentação */} 
  <section className="rounded-none border border-border/80 bg-card relative overflow-hidden">
  <div className="p-4 md:p-6 flex flex-col md:flex-row md:items-start justify-between gap-4 md:gap-6">
  <div className="flex flex-col gap-4 max-w-2xl">
@@ -418,11 +428,11 @@ export default function Page() {
  Procedimento Operacional Padrão
  </span>
  <span className="px-2 py-0.5 rounded-none text-[11px] font-mono text-muted-foreground bg-secondary border border-border">
- Diretriz Técnica Método FASTBUILD
+ Diretriz Técnica Método Fastbuild
  </span>
  </div>
  <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground mb-1.5 text-balance">
- Manual Prático Método FASTBUILD
+ Manual Prático Método Fastbuild
  </h1>
  <p className="text-base md:text-lg font-semibold text-foreground/80 mb-2.5">
  Etapas da montagem
@@ -460,7 +470,7 @@ export default function Page() {
  <figure className="shrink-0 w-full sm:w-72 md:w-64 lg:w-72 self-center md:self-start flex flex-col gap-1.5 border border-border/80 bg-secondary/30 p-2">
  <Image
  src="/images/casa-pronta.png"
- alt="Sobrado pronto construído com o Método FASTBUILD em Painel Monolítico"
+ alt="Sobrado pronto construído com o Método Fastbuild em Painel Monolítico"
  width={1080}
  height={846}
  priority
@@ -473,6 +483,52 @@ export default function Page() {
  </figure>
  </div>
  </section>
+
+        {/* Sobre o autor */}
+        <section
+          aria-labelledby="sobre-autor-titulo"
+          className="rounded-none border border-border/80 bg-card p-4 md:p-5"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-secondary text-foreground border border-border">
+              Sobre o autor
+            </span>
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-start gap-3 md:gap-4">
+            <div className="relative shrink-0 h-44 w-36 md:h-48 md:w-40 overflow-hidden border border-border bg-secondary">
+              <Image
+                src="/images/ronildo-queiroz.jpg"
+                alt="Ronildo Queiroz de capacete e colete de segurança segurando um projeto arquitetônico"
+                fill
+  sizes="160px"
+  className="object-cover object-top"
+              />
+            </div>
+            <div className="flex flex-col gap-1.5 min-w-0">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2
+                  id="sobre-autor-titulo"
+                  className="text-base md:text-lg font-bold tracking-tight text-foreground"
+                >
+                  Ronildo Queiroz
+                </h2>
+                <a
+                  href="https://www.instagram.com/ronildoeps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm font-mono font-semibold text-primary hover:underline print:text-foreground"
+                >
+                  @ronildoeps
+                  <ExternalLink className="h-3.5 w-3.5 print:hidden" aria-hidden="true" />
+                </a>
+              </div>
+              <p className="text-sm md:text-[15px] leading-relaxed text-foreground/90 text-pretty">
+                Especialista em construção civil há mais de 30 anos e, nos últimos 6 anos, dedicado ao Sistema Monolite em EPS. Com vasta experiência prática em canteiro de obras, Ronildo compartilha seu conhecimento para capacitar engenheiros, construtores e empreiteiros a dominarem a tecnologia de painéis monolíticos de EPS.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Sobre o sistema: origem e normas */}
         <section
@@ -514,9 +570,9 @@ export default function Page() {
               </p>
               <p className="text-pretty">
                 <strong className="font-semibold text-foreground">Origem:</strong> o sistema foi
-                desenvolvido na Itália, na década de 1970, e se espalhou pela Europa e América Latina.{" "}
+                desenvolvido na Itália, na década de 1970, e se espalhou pela Europa e pela América Latina.{" "}
                 <strong className="font-semibold text-foreground">No Brasil:</strong> chegou no início
-                dos anos 1990 e hoje é usado em casas, sobrados e obras comerciais.
+                dos anos 1990 e, hoje, é usado em casas, sobrados e obras comerciais.
               </p>
             </div>
             </div>
@@ -548,6 +604,9 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        {/* Anúncio do Método Fastbuild */}
+        <FastbuildAd variant="top" />
 
         {/* Pré-requisitos obrigatórios antes de iniciar a obra */}
         <section
@@ -677,7 +736,7 @@ export default function Page() {
  <span>Objetivo do POP</span>
  </div>
  <p className="text-xs md:text-sm text-foreground/90 leading-relaxed">
- Padronizar os processos construtivos do Método FASTBUILD, reduzindo retrabalho e garantindo prumo, esquadro e resistência estrutural.
+ Padronizar os processos construtivos do Método Fastbuild, reduzindo retrabalho e garantindo prumo, esquadro e resistência estrutural.
  </p>
  </div>
  </div>
@@ -691,11 +750,11 @@ export default function Page() {
  <ul className="space-y-1.5 text-xs md:text-sm text-foreground/90">
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>Engenheiro Responsável:</strong> Liberação de fases</span>
+ <span><strong>Engenheiro Responsável:</strong> liberação das etapas</span>
  </li>
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>Técnico de Instalação:</strong> Gabaritagem & supervisão</span>
+ <span><strong>Técnico de Instalação:</strong> gabaritagem e supervisão</span>
  </li>
  </ul>
  </div>
@@ -710,15 +769,15 @@ export default function Page() {
  <ul className="space-y-1.5 text-xs md:text-sm text-foreground/90">
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>1 Técnico de Instalação</strong> (Mestre montador)</span>
+ <span><strong>1 Técnico de Instalação</strong> (mestre montador)</span>
  </li>
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>2 Assistentes de Instalação</strong> (Montagem)</span>
+ <span><strong>2 Assistentes de Instalação</strong> (montagem)</span>
  </li>
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>Equipe Especializada:</strong> Elétrica & Hidráulica</span>
+ <span><strong>Equipe especializada:</strong> elétrica e hidráulica</span>
  </li>
  </ul>
  </div>
@@ -734,7 +793,7 @@ export default function Page() {
  aria-label="Buscar no manual"
  value={searchQuery}
  onChange={(e) => setSearchQuery(e.target.value)}
- placeholder="Buscar etapa, ferramenta ou material (ex: verga, martelete, argamassa)..."
+ placeholder="Buscar etapa, ferramenta ou material (ex.: verga, martelete, argamassa)"
  className="w-full pl-9 pr-3 py-2.5 rounded-none border border-border/80 bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:border-accent/60 transition-colors "
  />
  </div>
@@ -777,13 +836,16 @@ export default function Page() {
  )}
  </section>
 
+ {/* Anúncio do Método Fastbuild — encerramento */}
+ <FastbuildAd variant="bottom" />
+
  {/* Rodapé Técnico de Engenharia */}
  <footer className="border-t border-border/80 pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
  <div className="flex items-center gap-2.5">
- <img src="/logo-mfb.png" alt="Logo Método FASTBUILD" className="h-5 w-5 object-contain" />
- <span className="font-bold text-foreground font-mono">Método FASTBUILD</span>
+ <img src="/logo-mfb.png" alt="Logo Método Fastbuild" className="h-5 w-5 object-contain" />
+ <span className="font-bold text-foreground font-mono">Método Fastbuild</span>
  <span>·</span>
- <span>POP-06 Revisão R04</span>
+ <span>POP-06 · Versão R04 · 27/09/2026</span>
  </div>
  <p className="font-mono text-[11px]">
  Método Construtivo Monolítico EPS · Uso exclusivo de canteiro

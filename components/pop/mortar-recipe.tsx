@@ -64,7 +64,7 @@ export function MortarRecipe() {
           <Row
             label="Fibra de Polipropileno"
             value="Conforme fabricante"
-            sub="Anti-fissuras · somente com aditivo de outra marca"
+            sub="Antifissura · somente com aditivo de outra marca"
           />
         </ul>
         <div

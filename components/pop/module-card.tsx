@@ -96,8 +96,8 @@ export function ModuleCard({
       className="scroll-mt-20 border border-border bg-card overflow-hidden transition-all print:border-black print:mb-3"
     >
       {/* Cabeçalho Técnico do Módulo */}
-      <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 md:p-5 border-b border-border bg-card print:p-2 print:border-black">
-        <div className="flex items-start sm:items-center gap-3.5">
+      <header className="flex items-center justify-between gap-3 px-3 py-3 sm:px-4 md:px-5 md:py-4 border-b border-border bg-card print:p-2 print:border-black">
+        <div className="flex items-center gap-3 min-w-0">
           <div className="flex shrink-0 items-center justify-center h-10 w-10 md:h-11 md:w-11 border border-border bg-secondary/50 text-foreground font-mono font-bold text-base md:text-lg print:border-black print:h-8 print:w-8 print:text-sm">
             {number.padStart(2, "0")}
           </div>
@@ -118,20 +118,21 @@ export function ModuleCard({
           onClick={() => setActiveItems(allOpen ? [] : allItemValues)}
           aria-expanded={allOpen}
           aria-controls={`modulo-${number}-etapas`}
-          className="inline-flex w-fit shrink-0 items-center gap-1.5 self-start sm:self-auto border border-border/80 bg-card px-3 py-1.5 text-xs font-medium text-foreground hover:bg-secondary hover:border-accent/40 transition-colors cursor-pointer print:hidden"
+          aria-label={allOpen ? "Recolher módulo" : "Expandir módulo"}
+          className="inline-flex shrink-0 items-center justify-center gap-1.5 h-9 min-w-9 border border-border/80 bg-card px-2 sm:px-3 text-xs font-medium text-foreground hover:bg-secondary hover:border-accent/40 transition-colors cursor-pointer print:hidden"
         >
           {allOpen ? (
             <ChevronsDownUp className="h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
           ) : (
             <ChevronsUpDown className="h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
           )}
-          <span>{allOpen ? "Recolher módulo" : "Expandir módulo"}</span>
+          <span className="hidden sm:inline">{allOpen ? "Recolher módulo" : "Expandir módulo"}</span>
         </button>
       </header>
 
       {/* Faixa de Parâmetros Técnicos (Tempo, Equipe, Ferramentas) */}
       {(duration || team || (tools && tools.length > 0)) && (
-        <div className="flex flex-wrap items-center gap-y-2.5 gap-x-6 px-4 md:px-6 py-3 bg-secondary/20 border-b border-border text-xs print:p-2 print:border-black print:bg-white">
+        <div className="flex flex-wrap items-center gap-y-2 gap-x-5 px-3 sm:px-4 md:px-5 py-2.5 bg-secondary/20 border-b border-border text-xs print:p-2 print:border-black print:bg-white">
           {duration && (
             <div className="flex items-center gap-2">
               <Clock className="h-3.5 w-3.5 text-muted-foreground shrink-0 print:text-black" strokeWidth={1.25} />
@@ -176,7 +177,7 @@ export function ModuleCard({
               )}
             >
               <AccordionTrigger
-                className="px-4 md:px-6 py-3.5 md:py-4 hover:no-underline gap-4 items-center text-left group print:p-2 print:border-b print:border-black/40"
+                className="px-3 sm:px-4 md:px-5 py-3.5 hover:no-underline gap-3 items-center text-left group print:p-2 print:border-b print:border-black/40"
               >
                 <div className="flex items-center gap-3.5 flex-1 min-w-0">
                   <div
@@ -204,9 +205,9 @@ export function ModuleCard({
                 </div>
               </AccordionTrigger>
               <AccordionContent
-                className="px-4 md:px-6 pb-4 md:pb-5 pt-0 print:p-2"
+                className="px-3 sm:px-4 md:px-5 pb-3.5 pt-0 print:p-2"
               >
-                <div className="ml-10.5 border border-border bg-secondary/15 p-3.5 md:p-4 text-xs md:text-sm leading-relaxed text-foreground/90 print:ml-0 print:border-black print:bg-white print:p-2 print:text-xs">
+                <div className="sm:ml-10.5 border border-border bg-secondary/15 p-3 md:p-4 text-xs md:text-sm leading-relaxed text-foreground/90 print:ml-0 print:border-black print:bg-white print:p-2 print:text-xs">
                   {step.details}
                 </div>
               </AccordionContent>
@@ -217,7 +218,7 @@ export function ModuleCard({
 
       {/* Aviso Técnico */}
       {warning && (
-        <div className="m-4 md:m-5 border border-border bg-secondary/30 p-3.5 md:p-4 print:m-2 print:border-black print:border-l-4 print:bg-white">
+        <div className="m-3 sm:m-4 md:m-5 border border-border bg-secondary/30 p-3 md:p-4 print:m-2 print:border-black print:border-l-4 print:bg-white">
           <div className="flex items-start gap-3">
             <AlertTriangle className="h-4 w-4 text-accent shrink-0 mt-0.5 print:text-black" strokeWidth={1.25} />
             <div>

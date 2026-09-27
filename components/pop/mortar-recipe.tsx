@@ -1,4 +1,4 @@
-import { FlaskConical, Info, ExternalLink, PiggyBank } from "lucide-react"
+import { FlaskConical, Info, ExternalLink, PiggyBank, Ban } from "lucide-react"
 
 const PRODUCTS_URL = "https://beacons.ai/ronildoeps/produtos"
 
@@ -67,12 +67,21 @@ export function MortarRecipe() {
             sub="Anti-fissuras · somente com aditivo de outra marca"
           />
         </ul>
+        <div
+          role="alert"
+          className="flex items-center gap-3 border-t-2 border-destructive bg-destructive px-4 py-3 text-destructive-foreground"
+        >
+          <Ban className="h-5 w-5 shrink-0" strokeWidth={2} aria-hidden="true" />
+          <p className="font-display text-sm md:text-base font-bold uppercase tracking-wide">
+            Jamais fibra de vidro!
+          </p>
+        </div>
       </div>
 
       <div className="flex items-start gap-3 border border-accent/40 bg-accent/10 px-4 py-3 text-xs md:text-sm leading-relaxed text-foreground">
         <Info className="h-4 w-4 text-accent shrink-0 mt-0.5" strokeWidth={1.5} aria-hidden="true" />
         <p>
-          <strong>Usando o Smart Additive Drylevis?</strong> Não é necessário adicionar a fibra de polipropileno — ele
+          <strong>Usando o Smart Additive Drylevis?</strong> Não é necessário adicionar a fibra de polipropileno, pois ele
           já vem com fibra. Adicione a fibra <strong>somente se usar aditivo de outra marca</strong>.
         </p>
       </div>
@@ -91,7 +100,8 @@ export function MortarRecipe() {
           ))}
         </ul>
         <p className="px-4 py-2.5 border-t border-border/60 text-[11px] md:text-xs text-muted-foreground leading-relaxed">
-          Com essas opções, lembre-se de adicionar a fibra de polipropileno.
+          Com essas opções, lembre-se de adicionar a fibra de polipropileno.{" "}
+          <strong className="text-destructive">Jamais fibra de vidro.</strong>
         </p>
       </div>
 

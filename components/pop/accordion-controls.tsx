@@ -6,7 +6,7 @@ export const EXPAND_ALL_EVENT = "pop:expand-all"
 export const COLLAPSE_ALL_EVENT = "pop:collapse-all"
 
 const buttonClass =
-  "inline-flex items-center gap-1.5 border border-border/80 bg-card px-3 py-1.5 text-xs font-medium text-foreground hover:bg-secondary hover:border-accent/40 transition-colors cursor-pointer print:hidden"
+  "inline-flex items-center justify-center gap-1.5 h-9 min-w-9 border border-border/80 bg-card px-2 sm:px-3 text-xs font-medium text-foreground hover:bg-secondary hover:border-accent/40 transition-colors cursor-pointer print:hidden"
 
 export function AccordionControls() {
   return (
@@ -14,18 +14,20 @@ export function AccordionControls() {
       <button
         type="button"
         className={buttonClass}
+        aria-label="Expandir tudo"
         onClick={() => window.dispatchEvent(new Event(EXPAND_ALL_EVENT))}
       >
-        <ChevronsUpDown className="h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
-        <span>Expandir tudo</span>
+        <ChevronsUpDown className="h-4 w-4 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
+        <span className="hidden sm:inline">Expandir tudo</span>
       </button>
       <button
         type="button"
         className={buttonClass}
+        aria-label="Recolher tudo"
         onClick={() => window.dispatchEvent(new Event(COLLAPSE_ALL_EVENT))}
       >
-        <ChevronsDownUp className="h-3.5 w-3.5 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
-        <span>Recolher tudo</span>
+        <ChevronsDownUp className="h-4 w-4 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
+        <span className="hidden sm:inline">Recolher tudo</span>
       </button>
     </div>
   )

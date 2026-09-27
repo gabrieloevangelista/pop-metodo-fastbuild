@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react"
 
 const CHECKOUT_URL = "https://pay.kiwify.com.br/OQfdq7A"
 const VIDEO_ID = "80ilBNjGKk0"
@@ -62,8 +62,9 @@ export function FastbuildAd({ variant = "top" }: FastbuildAdProps) {
               Quero comprar agora
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </a>
-            <span className="font-mono text-[11px] uppercase tracking-wider text-background/60">
-              Pagamento seguro via Kiwify
+            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-background/60">
+              <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-background/60" aria-hidden="true" />
+              Pagamento seguro
             </span>
           </div>
         </div>

@@ -107,12 +107,12 @@ const modules: Array<{
  title: "Aplicar a impermeabilização no caminho das paredes",
  highlight: true,
  details:
- "Misturar e aplicar 2 mãos de Smart Resina + 1 mão de Cimento Elástico em todo o caminho das paredes demarcadas. Aguarde o tempo de secagem entre as mãos conforme a indicação do fabricante.",
+ "Misture e aplique 2 demãos de Smart Resina e 1 demão de Cimento Elástico em todo o caminho das paredes demarcadas. Entre uma demão e outra, aguarde o tempo de secagem indicado pelo fabricante.",
  },
  {
  title: "Encaixar os arranques nos furos",
  details:
- "Somente após a aplicação completa da camada de impermeabilizante, os Assistentes de Instalação devem encaixar os arranques nos furos previamente abertos no módulo de demarcação.",
+ "Somente após a aplicação completa do impermeabilizante, os Assistentes de Instalação devem encaixar os arranques nos furos abertos na etapa de demarcação.",
  },
  ],
  },
@@ -171,13 +171,13 @@ const modules: Array<{
  title: "Painéis acima e abaixo da janela: posição HORIZONTAL",
  highlight: true,
  details:
- "Atenção à orientação: as paredes ficam na vertical, mas os painéis que formam a parte de cima e de baixo da janela são colocados na posição HORIZONTAL. Conferir o projeto antes de fixar.",
+ "Atenção à orientação: as paredes ficam na vertical, mas os painéis que formam a parte de cima e de baixo da janela são colocados na posição HORIZONTAL. Confira o projeto antes de fixar.",
  },
  {
  title: "Malha U nas portas e janelas",
  highlight: true,
  details:
- "Coloque a malha U (vergas e contra-vergas) em todas as aberturas. Janelas: nas 4 extremidades, total de 4 unidades por janela. Portas: na parte de cima, 1 unidade por porta. Prenda com arame usando a torquês.",
+ "Coloque a malha U (vergas e contravergas) em todas as aberturas. Janelas: nas 4 extremidades, total de 4 unidades por janela. Portas: na parte de cima, 1 unidade por porta. Prenda com arame usando a torquês.",
  },
  {
  title: "Malha L em todos os cantos da casa (interno e externo)",
@@ -186,14 +186,14 @@ const modules: Array<{
  "Coloque a malha L em TODOS os cantos da casa, tanto na face interna quanto na face externa das paredes. Ela reforça o encontro entre os painéis e evita fissuras nas quinas. Prenda com arame usando a torquês.",
  },
  {
- title: "Malha “band-ai” a 45° nas quinas das janelas",
+ title: "Malha “band-aid” a 45° nas quinas das janelas",
  details:
- "Aplique a malha “band-ai” a 45° em relação à quina, em todas as quinas das janelas, dentro e fora, 8 unidades por janela. Prenda com arame e torquês.",
+ "Aplique a malha “band-aid” a 45° em relação à quina, em todas as quinas das janelas, dentro e fora, 8 unidades por janela. Prenda com arame e torquês.",
  },
  {
- title: "Malha “band-ai” a 45° nas quinas das portas",
+ title: "Malha “band-aid” a 45° nas quinas das portas",
  details:
- "Aplique a malha “band-ai” a 45° em todas as quinas das portas, dentro e fora, 4 unidades por porta. Prenda com arame e torquês.",
+ "Aplique a malha “band-aid” a 45° em todas as quinas das portas, dentro e fora, 4 unidades por porta. Prenda com arame e torquês.",
  },
  ],
  },
@@ -208,7 +208,7 @@ const modules: Array<{
  title: "Marcar dutos e caixinhas com tinta spray",
  highlight: true,
  details:
- "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr��������ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
+ "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr��ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
  },
  {
  title: "Abrir os dutos com soprador térmico",
@@ -303,7 +303,7 @@ const modules: Array<{
  title: "Cura da laje por 28 dias",
  highlight: true,
  details:
- "No dia seguinte à concretagem, inicie o processo de cura e mantenha a hidratação rigorosa da laje por 28 dias consecutivos até atingir a resistência de projeto (fck). O escoramento estrutural deve ser mantido conforme norma técnica durante o período de cura.",
+ "No dia seguinte à concretagem, inicie o processo de cura e mantenha a hidratação rigorosa da laje por 28 dias consecutivos até atingir a resistência de projeto (fck). Durante o período de cura, mantenha o escoramento estrutural conforme a norma técnica.",
  },
  {
  title: "Instalar a platibanda com painel monolítico",
@@ -569,9 +569,9 @@ export default function Page() {
               </p>
               <p className="text-pretty">
                 <strong className="font-semibold text-foreground">Origem:</strong> o sistema foi
-                desenvolvido na Itália, na década de 1970, e se espalhou pela Europa e América Latina.{" "}
+                desenvolvido na Itália, na década de 1970, e se espalhou pela Europa e pela América Latina.{" "}
                 <strong className="font-semibold text-foreground">No Brasil:</strong> chegou no início
-                dos anos 1990 e hoje é usado em casas, sobrados e obras comerciais.
+                dos anos 1990 e, hoje, é usado em casas, sobrados e obras comerciais.
               </p>
             </div>
             </div>
@@ -746,11 +746,11 @@ export default function Page() {
  <ul className="space-y-1.5 text-xs md:text-sm text-foreground/90">
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>Engenheiro Responsável:</strong> Liberação de fases</span>
+ <span><strong>Engenheiro Responsável:</strong> liberação das etapas</span>
  </li>
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>Técnico de Instalação:</strong> Gabaritagem & supervisão</span>
+ <span><strong>Técnico de Instalação:</strong> gabaritagem e supervisão</span>
  </li>
  </ul>
  </div>
@@ -765,15 +765,15 @@ export default function Page() {
  <ul className="space-y-1.5 text-xs md:text-sm text-foreground/90">
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>1 Técnico de Instalação</strong> (Mestre montador)</span>
+ <span><strong>1 Técnico de Instalação</strong> (mestre montador)</span>
  </li>
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>2 Assistentes de Instalação</strong> (Montagem)</span>
+ <span><strong>2 Assistentes de Instalação</strong> (montagem)</span>
  </li>
  <li className="flex items-center gap-2">
  <span className="h-1.5 w-1.5 rounded-none bg-accent shrink-0" aria-hidden="true" />
- <span><strong>Equipe Especializada:</strong> Elétrica & Hidráulica</span>
+ <span><strong>Equipe especializada:</strong> elétrica e hidráulica</span>
  </li>
  </ul>
  </div>
@@ -789,7 +789,7 @@ export default function Page() {
  aria-label="Buscar no manual"
  value={searchQuery}
  onChange={(e) => setSearchQuery(e.target.value)}
- placeholder="Buscar etapa, ferramenta ou material (ex: verga, martelete, argamassa)..."
+ placeholder="Buscar etapa, ferramenta ou material (ex.: verga, martelete, argamassa)"
  className="w-full pl-9 pr-3 py-2.5 rounded-none border border-border/80 bg-card text-sm text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:border-accent/60 transition-colors "
  />
  </div>

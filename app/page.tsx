@@ -18,9 +18,41 @@ import {
  Search,
  CheckCircle2,
  FileSpreadsheet,
- Building2
+ Building2,
+ Package,
+ MessageCircle,
+ Wrench,
+ ShieldCheck,
+ ExternalLink,
 } from "lucide-react"
 import { ModuleCard, type StepItem } from "@/components/pop/module-card"
+
+const supplyLinks = [
+  {
+    title: "Produtos",
+    description: "Aditivos, fibra e materiais",
+    href: "https://beacons.ai/ronildoeps/produtos",
+    icon: <Package className="h-5 w-5" aria-hidden="true" />,
+  },
+  {
+    title: "Painel Monolítico",
+    description: "Comprar pelo WhatsApp",
+    href: "https://wa.me/5511977308919?text=comprar%20painel",
+    icon: <MessageCircle className="h-5 w-5" aria-hidden="true" />,
+  },
+  {
+    title: "Ferramentas",
+    description: "Equipamentos para montagem",
+    href: "https://beacons.ai/ronildoeps/ferramentas",
+    icon: <Wrench className="h-5 w-5" aria-hidden="true" />,
+  },
+  {
+    title: "EPI",
+    description: "Proteção obrigatória da equipe",
+    href: "https://beacons.ai/ronildoeps/epi",
+    icon: <ShieldCheck className="h-5 w-5" aria-hidden="true" />,
+  },
+]
 import { TimelineNav } from "@/components/pop/timeline-nav"
 import { MortarRecipe } from "@/components/pop/mortar-recipe"
 import { PrintButton } from "@/components/pop/print-button"
@@ -492,6 +524,55 @@ export default function Page() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Onde encontrar produtos, painéis, ferramentas e EPI */}
+        <section
+          aria-labelledby="onde-encontrar-titulo"
+          className="rounded-none border-2 border-primary bg-card p-4 md:p-5"
+        >
+          <div className="flex flex-col gap-1 mb-3">
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-bold uppercase tracking-wider bg-primary text-primary-foreground">
+                Onde comprar
+              </span>
+              <h2
+                id="onde-encontrar-titulo"
+                className="text-base md:text-lg font-bold tracking-tight text-foreground text-balance"
+              >
+                Produtos, ferramentas e EPI
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Tenha tudo separado antes de iniciar. Use somente os itens indicados para garantir o resultado do método.
+            </p>
+          </div>
+
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3">
+            {supplyLinks.map((link) => (
+              <li key={link.title}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-full items-center gap-3 rounded-none border border-border/80 bg-secondary p-3 transition-colors hover:border-accent hover:bg-accent/10 focus-visible:outline-2 focus-visible:outline-ring"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-primary text-primary-foreground">
+                    {link.icon}
+                  </span>
+                  <span className="flex min-w-0 flex-1 flex-col">
+                    <span className="text-sm font-bold text-foreground">{link.title}</span>
+                    <span className="text-xs text-muted-foreground leading-snug">{link.description}</span>
+                  </span>
+                  <ExternalLink
+                    className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground"
+                    aria-hidden="true"
+                  />
+                  <span className="sr-only">(abre em nova aba)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Informações Técnicas Gerais (Objetivo, Responsáveis, Recursos) */}

@@ -209,7 +209,7 @@ const modules: Array<{
  title: "Marcar dutos e caixinhas com tinta spray",
  highlight: true,
  details:
- "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr��ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
+ "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidráulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
  },
  {
  title: "Abrir os dutos com soprador térmico",

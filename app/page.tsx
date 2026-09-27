@@ -208,7 +208,7 @@ const modules: Array<{
  title: "Marcar dutos e caixinhas com tinta spray",
  highlight: true,
  details:
- "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidráulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
+ "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr��ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
  },
  {
  title: "Abrir os dutos com soprador térmico",
@@ -410,21 +410,8 @@ export default function Page() {
  <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-3 md:py-5 flex flex-col gap-3 md:gap-4">
  {/* Banner Técnico da Norma / Documentação */}
  <section className="rounded-none border border-border/80 bg-card relative overflow-hidden">
- <div className="relative h-40 sm:h-52 md:h-64 w-full border-b border-border/80">
- <Image
- src="/images/casa-pronta.png"
- alt="Sobrado pronto construído com o Método FASTBUILD em Painel Monolítico"
- fill
- priority
- sizes="(min-width: 1152px) 1152px, 100vw"
- className="object-cover object-[center_45%]"
- />
- <span className="absolute left-3 bottom-3 px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-card/90 text-foreground border border-border">
- Casa pronta · Painel Monolítico
- </span>
- </div>
- <div className="p-4 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
- <div className="flex items-start gap-4 max-w-2xl">
+ <div className="p-4 md:p-6 flex flex-col md:flex-row md:items-start justify-between gap-4 md:gap-6">
+ <div className="flex flex-col gap-4 max-w-2xl">
  <div>
  <div className="flex flex-wrap items-center gap-2 mb-3">
  <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-accent/10 text-accent border border-accent/20">
@@ -444,10 +431,9 @@ export default function Page() {
  Manual prático de execução para canteiro de obras. Orientação de gabaritagem, ancoragem em radier, alinhamento de esquadros, passagens técnicas e reboco estrutural com argamassa projetada.
  </p>
  </div>
- </div>
 
  {/* Painel de Indicadores Técnicos de Obra */}
- <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 gap-2.5 shrink-0">
+ <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
  <div className="p-3 rounded-none border border-border/70 bg-secondary/30">
  <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-mono">Módulos</div>
  <div className="text-lg font-bold font-mono text-foreground mt-0.5">08</div>
@@ -469,6 +455,22 @@ export default function Page() {
  <div className="text-[10px] text-muted-foreground font-mono">Reboco / Laje</div>
  </div>
  </div>
+ </div>
+
+ <figure className="shrink-0 w-full sm:w-72 md:w-64 lg:w-72 self-center md:self-start flex flex-col gap-1.5 border border-border/80 bg-secondary/30 p-2">
+ <Image
+ src="/images/casa-pronta.png"
+ alt="Sobrado pronto construído com o Método FASTBUILD em Painel Monolítico"
+ width={1080}
+ height={846}
+ priority
+ sizes="(min-width: 768px) 288px, 100vw"
+ className="w-full h-auto object-contain"
+ />
+ <figcaption className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground text-center">
+ Casa pronta · Painel Monolítico
+ </figcaption>
+ </figure>
  </div>
  </section>
 

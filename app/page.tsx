@@ -458,6 +458,67 @@ export default function Page() {
  </div>
  </section>
 
+        {/* Sobre o sistema: origem e normas */}
+        <section
+          aria-labelledby="sobre-sistema-titulo"
+          className="rounded-none border border-border/80 bg-card p-4 md:p-5"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-secondary text-foreground border border-border">
+              Sobre o sistema
+            </span>
+            <h2
+              id="sobre-sistema-titulo"
+              className="text-base md:text-lg font-bold tracking-tight text-foreground text-balance"
+            >
+              O que é o Painel Monolítico
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-5">
+            <div className="md:col-span-3 flex flex-col gap-3 text-sm text-foreground/85 leading-relaxed">
+              <p className="text-pretty">
+                O Painel Monolítico é formado por um núcleo de EPS (isopor) entre duas telas de aço
+                soldadas e unidas por conectores. Depois de montado na obra, recebe argamassa projetada
+                nos dois lados e vira uma parede estrutural única, leve, resistente e com ótimo
+                isolamento térmico e acústico.
+              </p>
+              <p className="text-pretty">
+                <strong className="font-semibold text-foreground">Origem:</strong> o sistema foi
+                desenvolvido na Itália, na década de 1970, e se espalhou pela Europa e América Latina.{" "}
+                <strong className="font-semibold text-foreground">No Brasil:</strong> chegou no início
+                dos anos 1990 e hoje é usado em casas, sobrados e obras comerciais.
+              </p>
+            </div>
+
+            <div className="md:col-span-2 flex flex-col gap-2">
+              <div className="rounded-none border-2 border-primary bg-primary/5 p-3">
+                <div className="text-[10px] uppercase tracking-wider font-mono font-bold text-primary">
+                  Norma que regulamenta
+                </div>
+                <div className="text-base font-bold text-foreground mt-0.5">Diretriz SINAT nº 011</div>
+                <p className="text-xs text-muted-foreground leading-relaxed mt-1">
+                  Diretriz do PBQP-H / Ministério das Cidades para paredes de painéis de EPS com telas
+                  de aço e revestimento de argamassa. Base para o DATec do sistema.
+                </p>
+              </div>
+
+              <div className="rounded-none border border-border/80 bg-secondary/30 p-3">
+                <div className="text-[10px] uppercase tracking-wider font-mono font-semibold text-muted-foreground mb-1.5">
+                  Normas ABNT aplicadas
+                </div>
+                <ul className="flex flex-col gap-1 text-xs text-foreground/85">
+                  <li><strong className="font-mono">NBR 15575</strong> · Desempenho de edificações</li>
+                  <li><strong className="font-mono">NBR 11752</strong> · EPS para construção (Classe F, antichama)</li>
+                  <li><strong className="font-mono">NBR 7481</strong> · Tela de aço soldada</li>
+                  <li><strong className="font-mono">NBR 13281</strong> · Argamassa de revestimento</li>
+                  <li><strong className="font-mono">NBR 13749</strong> · Revestimento de paredes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Pré-requisitos obrigatórios antes de iniciar a obra */}
         <section
           aria-labelledby="pre-requisitos-titulo"

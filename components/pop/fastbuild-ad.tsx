@@ -1,7 +1,7 @@
-import Image from "next/image"
-import { ArrowRight, CheckCircle2, Play } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 
 const CHECKOUT_URL = "https://pay.kiwify.com.br/OQfdq7A"
+const VIDEO_ID = "80ilBNjGKk0"
 
 const benefits = [
   "Passo a passo gravado em obras reais",
@@ -68,30 +68,17 @@ export function FastbuildAd({ variant = "top" }: FastbuildAdProps) {
           </div>
         </div>
 
-        <a
-          href={CHECKOUT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Assistir às aulas do Método Fastbuild"
-          className="group relative min-h-56 md:col-span-2 md:min-h-full"
-        >
-          <Image
-            src="/images/casa-pronta.png"
-            alt=""
-            fill
-            sizes="(min-width: 768px) 40vw, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+        <div className="relative aspect-video bg-foreground md:col-span-2 md:aspect-auto md:min-h-full">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0`}
+            title="Método Fastbuild: aulas em vídeo com obras reais"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
           />
-          <div className="absolute inset-0 bg-foreground/35" aria-hidden="true" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-xl ring-8 ring-accent/30 transition-transform group-hover:scale-110">
-              <Play className="ml-1 h-7 w-7 fill-current" aria-hidden="true" />
-            </span>
-          </div>
-          <span className="absolute bottom-3 left-3 bg-foreground/80 px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-background">
-            Obras reais · Vídeo-aulas
-          </span>
-        </a>
+        </div>
       </div>
     </section>
   )

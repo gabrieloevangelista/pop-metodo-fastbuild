@@ -222,7 +222,7 @@ const modules: Array<{
  "Aguarde 48 horas de cura completa da projeção antes de seguir para a próxima etapa. Não acelere o processo.",
  },
  {
- title: "Traço da argamassa (proporção 1:3)",
+ title: "Traço da argamassa, aditivo e fibra",
  details: <MortarRecipe />,
  },
  ],
@@ -377,13 +377,6 @@ export default function Page() {
  <section className="rounded-none border border-border/80 bg-card p-6 md:p-8 relative overflow-hidden">
  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
  <div className="flex items-start gap-4 max-w-2xl">
- <div className="hidden sm:flex shrink-0 items-center justify-center h-16 w-16 md:h-20 md:w-20 border border-border bg-white p-1.5">
- <img
- src="/logo-mfb.png"
- alt="Logo Método FASTBUILD"
- className="h-full w-full object-contain"
- />
- </div>
  <div>
  <div className="flex flex-wrap items-center gap-2 mb-3">
  <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-accent/10 text-accent border border-accent/20">
@@ -393,9 +386,12 @@ export default function Page() {
  Diretriz Técnica Método FASTBUILD
  </span>
  </div>
- <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground mb-2.5 text-balance">
- Montagem de Painel Monolítico
+ <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground mb-1.5 text-balance">
+ Manual Prático Método FASTBUILD
  </h1>
+ <p className="text-base md:text-lg font-semibold text-foreground/80 mb-2.5">
+ Montagem de Painel Monolítico
+ </p>
  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed max-w-xl">
  Manual prático de execução para canteiro de obras. Orientação de gabaritagem, ancoragem em radier, alinhamento de esquadros, passagens técnicas e reboco estrutural com argamassa projetada.
  </p>

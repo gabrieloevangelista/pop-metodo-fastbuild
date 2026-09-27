@@ -208,7 +208,7 @@ const modules: Array<{
  title: "Marcar dutos e caixinhas com tinta spray",
  highlight: true,
  details:
- "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr����ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
+ "Com o projeto em mãos, o Técnico de Instalação marca a posição dos dutos elétricos, hidr������ulicos e das caixinhas de interruptor utilizando exclusivamente TINTA SPRAY. Não use outro tipo de marcador. Tempo médio: 4 horas para marcar e iniciar a execução.",
  },
  {
  title: "Abrir os dutos com soprador térmico",
@@ -482,6 +482,52 @@ export default function Page() {
  </figure>
  </div>
  </section>
+
+        {/* Sobre o autor */}
+        <section
+          aria-labelledby="sobre-autor-titulo"
+          className="rounded-none border border-border/80 bg-card p-4 md:p-5"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span className="px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-secondary text-foreground border border-border">
+              Sobre o autor
+            </span>
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-start gap-3 md:gap-4">
+            <div className="relative shrink-0 h-28 w-24 md:h-32 md:w-28 overflow-hidden border border-border bg-secondary">
+              <Image
+                src="/images/ronildo-queiroz.jpg"
+                alt="Ronildo Queiroz de capacete e colete de segurança segurando um projeto arquitetônico"
+                fill
+                sizes="112px"
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="flex flex-col gap-1.5 min-w-0">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h2
+                  id="sobre-autor-titulo"
+                  className="text-base md:text-lg font-bold tracking-tight text-foreground"
+                >
+                  Ronildo Queiroz
+                </h2>
+                <a
+                  href="https://www.instagram.com/ronildoeps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm font-mono font-semibold text-primary hover:underline print:text-foreground"
+                >
+                  @ronildoeps
+                  <ExternalLink className="h-3.5 w-3.5 print:hidden" aria-hidden="true" />
+                </a>
+              </div>
+              <p className="text-sm md:text-[15px] leading-relaxed text-foreground/90 text-pretty">
+                Especialista em construção civil há mais de 30 anos e, nos últimos 6 anos, dedicado ao Sistema Monolite em EPS. Com vasta experiência prática em canteiro de obras, Ronildo compartilha seu conhecimento para capacitar engenheiros, construtores e empreiteiros a dominarem a tecnologia de painéis monolíticos de EPS.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Sobre o sistema: origem e normas */}
         <section

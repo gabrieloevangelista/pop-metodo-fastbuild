@@ -417,7 +417,21 @@ export default function Page() {
  </header>
 
  <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-3 md:py-5 flex flex-col gap-3 md:gap-4">
- {/* Banner Técnico da Norma / Documentação */}
+ {/* Anúncio do Método Fastbuild */}
+ <section className="border border-accent/30 bg-accent/5 px-4 py-4 md:px-6 md:py-5" aria-label="Publicidade do Método FASTBUILD">
+ <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+ <div>
+ <p className="text-[11px] font-mono font-semibold uppercase tracking-widest text-accent mb-1.5">Método FASTBUILD</p>
+ <h2 className="text-lg md:text-xl font-bold tracking-tight text-foreground text-balance">Aulas em vídeo com obras reais</h2>
+ <p className="text-sm text-muted-foreground mt-1">Aprenda na prática com quem vive o canteiro de obras.</p>
+ </div>
+ <a href="https://pay.kiwify.com.br/OQfdq7A" target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center bg-accent px-5 py-2.5 text-sm font-bold text-accent-foreground transition-colors hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
+ Comprar agora
+ </a>
+ </div>
+ </section>
+
+ {/* Banner Técnico da Norma / Documentação */} 
  <section className="rounded-none border border-border/80 bg-card relative overflow-hidden">
  <div className="p-4 md:p-6 flex flex-col md:flex-row md:items-start justify-between gap-4 md:gap-6">
  <div className="flex flex-col gap-4 max-w-2xl">
@@ -830,6 +844,20 @@ export default function Page() {
  </button>
  </div>
  )}
+ </section>
+
+ {/* Anúncio do Método Fastbuild — encerramento */}
+ <section className="border border-accent/30 bg-accent/5 px-4 py-4 md:px-6 md:py-5 mb-3" aria-label="Publicidade do Método FASTBUILD">
+ <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+ <div>
+ <p className="text-[11px] font-mono font-semibold uppercase tracking-widest text-accent mb-1.5">Método FASTBUILD</p>
+ <h2 className="text-lg md:text-xl font-bold tracking-tight text-foreground text-balance">Aulas em vídeo com obras reais</h2>
+ <p className="text-sm text-muted-foreground mt-1">Aprenda na prática com quem vive o canteiro de obras.</p>
+ </div>
+ <a href="https://pay.kiwify.com.br/OQfdq7A" target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center bg-accent px-5 py-2.5 text-sm font-bold text-accent-foreground transition-colors hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2">
+ Comprar agora
+ </a>
+ </div>
  </section>
 
  {/* Rodapé Técnico de Engenharia */}

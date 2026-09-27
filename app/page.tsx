@@ -378,14 +378,14 @@ export default function Page() {
  <div className="flex items-center justify-center h-9 w-9 border border-border bg-card p-1 shrink-0">
  <img
  src="/logo-mfb.png"
- alt="Logo Método FASTBUILD"
+ alt="Logo Método Fastbuild"
  className="h-full w-full object-contain"
  />
  </div>
  <div className="min-w-0">
  <div className="flex items-center gap-2">
  <span className="text-[10px] font-bold uppercase tracking-widest text-accent font-mono">
- Método FASTBUILD
+ Método Fastbuild
  </span>
  <span className="hidden sm:inline text-muted-foreground/40 text-xs">|</span>
  <span className="hidden sm:inline text-[10px] uppercase tracking-wider text-muted-foreground font-mono">
@@ -427,11 +427,11 @@ export default function Page() {
  Procedimento Operacional Padrão
  </span>
  <span className="px-2 py-0.5 rounded-none text-[11px] font-mono text-muted-foreground bg-secondary border border-border">
- Diretriz Técnica Método FASTBUILD
+ Diretriz Técnica Método Fastbuild
  </span>
  </div>
  <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground mb-1.5 text-balance">
- Manual Prático Método FASTBUILD
+ Manual Prático Método Fastbuild
  </h1>
  <p className="text-base md:text-lg font-semibold text-foreground/80 mb-2.5">
  Etapas da montagem
@@ -469,7 +469,7 @@ export default function Page() {
  <figure className="shrink-0 w-full sm:w-72 md:w-64 lg:w-72 self-center md:self-start flex flex-col gap-1.5 border border-border/80 bg-secondary/30 p-2">
  <Image
  src="/images/casa-pronta.png"
- alt="Sobrado pronto construído com o Método FASTBUILD em Painel Monolítico"
+ alt="Sobrado pronto construído com o Método Fastbuild em Painel Monolítico"
  width={1080}
  height={846}
  priority
@@ -732,7 +732,7 @@ export default function Page() {
  <span>Objetivo do POP</span>
  </div>
  <p className="text-xs md:text-sm text-foreground/90 leading-relaxed">
- Padronizar os processos construtivos do Método FASTBUILD, reduzindo retrabalho e garantindo prumo, esquadro e resistência estrutural.
+ Padronizar os processos construtivos do Método Fastbuild, reduzindo retrabalho e garantindo prumo, esquadro e resistência estrutural.
  </p>
  </div>
  </div>
@@ -835,8 +835,8 @@ export default function Page() {
  {/* Rodapé Técnico de Engenharia */}
  <footer className="border-t border-border/80 pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
  <div className="flex items-center gap-2.5">
- <img src="/logo-mfb.png" alt="Logo Método FASTBUILD" className="h-5 w-5 object-contain" />
- <span className="font-bold text-foreground font-mono">Método FASTBUILD</span>
+ <img src="/logo-mfb.png" alt="Logo Método Fastbuild" className="h-5 w-5 object-contain" />
+ <span className="font-bold text-foreground font-mono">Método Fastbuild</span>
  <span>·</span>
  <span>POP-06 · Versão R04 · 27/09/2026</span>
  </div>

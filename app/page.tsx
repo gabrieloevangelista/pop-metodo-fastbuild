@@ -173,14 +173,16 @@ const modules: Array<{
  "Atenção à orientação: as paredes ficam na vertical, mas os painéis que formam a parte de cima e de baixo da janela são colocados na posição HORIZONTAL. Conferir o projeto antes de fixar.",
  },
  {
- title: "Vergas e contra-vergas (malha U) nas janelas",
+ title: "Malha U nas portas e janelas",
+ highlight: true,
  details:
- "Coloque vergas e contra-vergas com malha U nas 4 extremidades de cada janela, total de 4 unidades por janela. Prenda com arame usando a torquês.",
+ "Coloque a malha U (vergas e contra-vergas) em todas as aberturas. Janelas: nas 4 extremidades, total de 4 unidades por janela. Portas: na parte de cima, 1 unidade por porta. Prenda com arame usando a torquês.",
  },
  {
- title: "Vergas (malha U) nas portas",
+ title: "Malha L em todos os cantos da casa (interno e externo)",
+ highlight: true,
  details:
- "Coloque verga em malha U na parte de cima de cada porta, 1 unidade por porta. Prenda com arame e torquês.",
+ "Coloque a malha L em TODOS os cantos da casa, tanto na face interna quanto na face externa das paredes. Ela reforça o encontro entre os painéis e evita fissuras nas quinas. Prenda com arame usando a torquês.",
  },
  {
  title: "Malha “band-ai” a 45° nas quinas das janelas",
@@ -422,7 +424,7 @@ export default function Page() {
  Manual Prático Método FASTBUILD
  </h1>
  <p className="text-base md:text-lg font-semibold text-foreground/80 mb-2.5">
- Montagem de Painel Monolítico
+ Etapas da montagem
  </p>
  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed max-w-xl">
  Manual prático de execução para canteiro de obras. Orientação de gabaritagem, ancoragem em radier, alinhamento de esquadros, passagens técnicas e reboco estrutural com argamassa projetada.

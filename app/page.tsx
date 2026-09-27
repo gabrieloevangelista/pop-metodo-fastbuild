@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import {
  HardHat,
  Ruler,
@@ -408,8 +409,21 @@ export default function Page() {
 
  <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-3 md:py-5 flex flex-col gap-3 md:gap-4">
  {/* Banner Técnico da Norma / Documentação */}
- <section className="rounded-none border border-border/80 bg-card p-4 md:p-6 relative overflow-hidden">
- <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+ <section className="rounded-none border border-border/80 bg-card relative overflow-hidden">
+ <div className="relative h-40 sm:h-52 md:h-64 w-full border-b border-border/80">
+ <Image
+ src="/images/casa-pronta.png"
+ alt="Sobrado pronto construído com o Método FASTBUILD em Painel Monolítico"
+ fill
+ priority
+ sizes="(min-width: 1152px) 1152px, 100vw"
+ className="object-cover object-[center_45%]"
+ />
+ <span className="absolute left-3 bottom-3 px-2 py-0.5 rounded-none text-[11px] font-mono font-semibold uppercase tracking-wider bg-card/90 text-foreground border border-border">
+ Casa pronta · Painel Monolítico
+ </span>
+ </div>
+ <div className="p-4 md:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
  <div className="flex items-start gap-4 max-w-2xl">
  <div>
  <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -476,7 +490,20 @@ export default function Page() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-5">
-            <div className="md:col-span-3 flex flex-col gap-3 text-sm text-foreground/85 leading-relaxed">
+            <div className="md:col-span-3 flex flex-col sm:flex-row gap-3 md:gap-4">
+              <figure className="shrink-0 flex flex-col items-center gap-1.5 border border-border/80 bg-secondary/30 p-2 sm:w-36 md:w-40">
+                <Image
+                  src="/images/painel-monolitico.png"
+                  alt="Painel Monolítico: núcleo de EPS entre duas telas de aço soldadas"
+                  width={270}
+                  height={360}
+                  className="h-44 sm:h-auto w-auto object-contain"
+                />
+                <figcaption className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground text-center">
+                  Painel Monolítico
+                </figcaption>
+              </figure>
+            <div className="flex flex-col gap-3 text-sm text-foreground/85 leading-relaxed">
               <p className="text-pretty">
                 O Painel Monolítico é formado por um núcleo de EPS (isopor) entre duas telas de aço
                 soldadas e unidas por conectores. Depois de montado na obra, recebe argamassa projetada
@@ -489,6 +516,7 @@ export default function Page() {
                 <strong className="font-semibold text-foreground">No Brasil:</strong> chegou no início
                 dos anos 1990 e hoje é usado em casas, sobrados e obras comerciais.
               </p>
+            </div>
             </div>
 
             <div className="md:col-span-2 flex flex-col gap-2">

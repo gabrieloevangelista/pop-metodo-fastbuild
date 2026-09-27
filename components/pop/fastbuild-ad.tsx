@@ -70,7 +70,7 @@ export function FastbuildAd({ variant = "top" }: FastbuildAdProps) {
 
         <div className="relative aspect-video bg-foreground md:col-span-2 md:aspect-auto md:min-h-full">
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0`}
+            src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0&controls=0&modestbranding=1&iv_load_policy=3&playsinline=1`}
             title="Método Fastbuild: aulas em vídeo com obras reais"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
